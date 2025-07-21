@@ -1,26 +1,205 @@
 @import "tailwindcss";
 
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'america';
+	src: url('../fonts/gt/GT-America-Extended-Light-Trial.otf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'satoshi';
+	src: url('../fonts/satoshi/Satoshi-Black.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+    --heading-font: america;
+    --font-body: satoshi;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+    --background: #ffffff;
+    --foreground: #171717;
+    --background-grey: #eee;
+    --color-jaune: #fbff95;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --text-color-primary: #1e1e1e;
+
+    --padding-page: 1.8rem;
+    --margin-page: ;
+    --max-width: 81.75rem;
+    --letter-spacing: -.03em;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font--body);
+    color: var(--text-color-primary);
+    background-color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.heading-style-h2 {
+    /* font-size: 40px; */
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+
+.uncement {
+    font-size: .875rem;;
+    padding: .5rem 1.25rem;
+    text-align: center;
+    color: var(--text-color-primary);
+    background-color: var(--background-grey);
+    gap: .5rem;
+    font-weight: 500;
+}
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    padding: .5rem 1.75rem;
+    font-size: .65rem;
+    transition: opacity .2s;
+    text-align: center;
+    letter-spacing: -.03em;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    background-color: var(--color-jaune);
+}
+
+.btn.btn_demo {
+    background-color: white;
+}
+
+.heading-font {
+    font-family: var(--heading-font);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing);
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.pt-4 {
+    padding-top: .65rem;
+}
+
+.smaller {
+    font-size: .65rem;
+    margin: 0 .5rem;
+    font-family: satoshi;
+}
+
+.smaller_plus {
+    font-size: .75rem;
+}
+
+.divider {
+    border-top-style: solid;
+    border-top-width: 1px;
+    width: 100%;
+    display: block;
+    border-top-color: gray;
+}
+
+.style_logo_one {
+    transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;
+}
+
+.style_logo_two {
+    transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;
+}
+
+/* header */
+/* Place le header en bas de sa section */
+.sticky-wrapper {
+    position: relative;
+    height: auto;
+}
+
+.custom-sticky-header {
+    position: sticky;
+    bottom: 0; /* collé en bas initialement */
+    top: 0; /* va se coller en haut après scroll */
+    z-index: 50;
+    transition: all 0.3s ease;
+}
+
+ul li ul {
+    display: none;
+}
+
+.nav {
+    display: none;
+}
+
+.section_black {
+    @apply bg-[var(--text-color-primary)]
+}
+
+.padding_main {
+    @apply px-[var(--padding-page)] 
+}
+
+.container_main {
+    @apply z-0 border-l-gray-500 border-r-gray-500 border-b-0 border-t-0 border  w-full max-w-[var(--max-width)] m-auto
+}
+
+
+.uncement {
+    @apply md:flex gap-[.5rem] md:items-center md:justify-center 
+}
+
+.btn_home {
+    @apply mt-[.75rem] md:mt-0
+}
+
+.width-content {
+    @apply md:max-w-[27rem] m-auto
+}
+
+/* .heading-font {
+    @apply 
+} */
+
+.content_hero {
+    @apply px-[1.25rem] py-[1.25rem]
+}
+
+
+@media screen and (max-width: 767px) {
+    .heading-style {
+        font-size: 2rem;
+    }
+    .padding_main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .width-content {
+        width: 100%;
+        max-width: 48rem;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .heading-style {
+        font-size: 1.2rem;
+    }
+    .smaller {
+        font-size: .65rem;
+    }
 }
