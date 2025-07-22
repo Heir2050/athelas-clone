@@ -122,12 +122,18 @@ body {
 .style_logo_two {
     transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;
 }
-
+.nav_container {
+    padding: .5rem 1.25rem;
+}
 /* header */
 /* Place le header en bas de sa section */
 .sticky-wrapper {
     position: relative;
     height: auto;
+}
+
+.hero_section {
+    position: relative;
 }
 
 .custom-sticky-header {
@@ -142,8 +148,10 @@ ul li ul {
     display: none;
 }
 
-.nav {
-    display: none;
+nav ul li {
+    padding: 1.5rem .8rem;
+    font-size: .75rem;
+    color: #1e1e1e;
 }
 
 .section_black {
@@ -179,6 +187,24 @@ ul li ul {
     @apply px-[1.25rem] py-[1.25rem]
 }
 
+@media screen and (min-width: 1024) {
+    .padding_main {
+        padding-inline: 3rem;
+    }
+}
+
+
+
+@media screen and (min-width: 767px) {
+    .nav_container {
+        padding-top: .4rem;
+        padding-bottom: .4rem;
+
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}
+
 
 @media screen and (max-width: 767px) {
     .heading-style {
@@ -192,6 +218,13 @@ ul li ul {
         width: 100%;
         max-width: 48rem;
         margin: 0 auto;
+    }
+    /* header */
+    .nav, .demo {
+        display: none;
+    }
+    .haburger_menu {
+        display: initial;
     }
 }
 
