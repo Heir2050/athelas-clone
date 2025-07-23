@@ -51,7 +51,7 @@ export function HomePage() {
     };
 
     const getHeaderClasses = () => {
-        const baseClasses = "w-full z-50 transition-all duration-300 ease-in-out bg-white border border-[var(--text-color-primary)]";
+        const baseClasses = "w-full z-50 transition-all duration-300 ease-in-out bg-white border-t-1 border-b-1 border-[var(--text-color-primary)]";
         if (isHeaderFixed && headerPosition === 'top') {
             return `fixed top-0 ${baseClasses}`;
         } else if (isHeaderFixed && headerPosition === 'bottom') {

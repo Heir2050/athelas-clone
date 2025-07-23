@@ -1,8 +1,9 @@
 
 import Image from "next/image";
 
-import { HomePage } from "./components/home";
-import { Stories } from "./components/stories";
+import { HomePage } from "@/components/home";
+import { Stories } from "@/components/stories";
+import { Separator } from "@/components/seperator";
 
 export default function Home() {
     return (
@@ -12,6 +13,10 @@ export default function Home() {
 
                 <main>
                     <Stories />
+
+                    <div className="divider"></div>
+                    
+                    
                 </main>
             </div>
         </>
