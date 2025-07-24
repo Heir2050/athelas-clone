@@ -1,4 +1,5 @@
 @import "tailwindcss";
+/* @import "./inverted"; */
 
 /* Animation personnalisée slide-left */
 @layer utilities {
@@ -229,12 +230,28 @@ nav ul li {
     @apply  border-b-[var(--text-color-primary)] border-[var(--text-color-primary)] border pt-[8rem]  w-full max-w-[var(--max-width)] m-auto
 }
 
+.middle {
+    @apply border border-b-[var(--text-color-primary)] border-[var(--text-color-primary)] w-full h-[4rem] border-r-0 border-l-0
+}
+
+/* .middle .container_main {
+    @apply pt-2 pb-2
+} */
+
+/* .middle_content {
+    @apply pt-4
+} */
+
 .uncement {
     @apply md:flex gap-[.5rem] md:items-center md:justify-center 
 }
 
 .btn_home {
     @apply mt-[.75rem] md:mt-0
+}
+
+.has-padding {
+    @apply px-[1rem] md:px-[3rem]
 }
 
 .width-content {
@@ -250,12 +267,13 @@ nav ul li {
     @apply border-[var(--text-color-primary)] relative
 }
 
-.small_hidden {
-    @apply md:mb-[1.50rem] lg:mb-[2rem] text-[.625rem]
+.small_hidden.section-sub-heading {
+    @apply pb-[1.5rem]
 }
 
+
 .heading-style-h3 {
-    @apply text-[2.5rem]
+    @apply text-[1.5rem] px-8
 }
 
 .mr-slide {
@@ -272,6 +290,126 @@ nav ul li {
 
 .btn_stories {
     @apply bg-[var(--foreground)] text-center mt-[3rem] md:mt-[3.5rem]
+}
+
+.paddind-bottom {
+    @apply mb-6 md:mb-9 lg:mb-12
+}
+
+.demo.text-center {
+    @apply pt-[6rem] 
+}
+
+.btn_center {
+    @apply bg-black
+}
+
+.product {
+    @apply text-black
+}
+
+/* Products */
+.home-featured-products {
+    @apply p-4 md:p-[1.5rem]
+}
+
+
+.home-featured-products_grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-x-2 gap-y-2 justify-center overflow-x-clip
+}
+
+.home-featured-products_grid img {
+    @apply object-contain relative
+}
+
+.home-featured-products_grid {
+    /* background-color: #fbff95; */
+    padding: 1rem;
+}
+
+.card {
+    border-radius: .625rem;
+    text-align: center;
+    position: relative;
+}
+
+.card:nth-child(1) {
+    background-color: #162e3b;
+    color: white;
+}
+
+.card:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 5rem;
+    border-radius: inherit;
+    background-color: inherit;
+    transform: translateY(-50%);
+}
+
+.card:nth-child(1) .smaller_img {
+    filter: invert();
+}
+  
+.card:nth-child(2) {
+    background-color: #d4eaf4;
+}
+
+.card:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 3.75rem;
+    border-radius: inherit;
+    background-color: inherit;
+    transform: translateY(50%);
+}
+  
+.card:nth-child(3) {
+    background-color: #eeeff1;
+    inset: auto 0% 0% auto;
+}
+
+.card:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 3.75rem;
+    border-radius: inherit;
+    background-color: inherit;
+    transform: translateY(-50%);
+}
+
+.card .smaller_img {
+    height: 2.5rem;
+    margin-bottom: .5rem;
+}
+
+.ai-agent {
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    flex-flow: row;
+    grid-template-rows: auto;
+    grid-template-columns: minmax(0, 27.5rem) minmax(0, 30rem);
+    grid-auto-columns: 1fr;
+    justify-content: space-around;
+    display: grid;
+
+    padding: 1.5rem;
+    font-size: 1rem;
+}
+
+
+
+.btn_center:hover {
+    opacity: .7;
 }
 
 .infinity {

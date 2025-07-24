@@ -73,7 +73,9 @@ export function Infinity() {
                         </div>
                     </div>
                 </div>
-                
+                <div className="demo text-center">
+                    <Link href="more_stories" className="btn btn_center bg-black border rounded-[10rem] text-[var(--text-color-primary)];">Read Customer Stories</Link>
+                </div>
             </section>
         </>
     )

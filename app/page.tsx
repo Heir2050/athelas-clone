@@ -4,6 +4,8 @@ import Image from "next/image";
 import { HomePage } from "@/components/home";
 import { Stories } from "@/components/stories";
 import { Separator } from "@/components/seperator";
+import { Middle } from "@/components/middle";
+import { Product } from "@/components/product";
 
 export default function Home() {
     return (
@@ -14,8 +16,9 @@ export default function Home() {
                 <main>
                     <Stories />
 
-                    <div className="divider"></div>
+                    <Middle />
                     
+                    <Product />
                     
                 </main>
             </div>

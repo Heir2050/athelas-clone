@@ -7,7 +7,7 @@ export function Stories() {
             <section className="stories">
                 <div className="padding_main">
                     <div className="container_main has-padding">
-                        <div className="text-center py-4">
+                        <div className="text-center paddind-bottom">
                             <h2 className="small_hidden section-sub-heading mb-[1.25rem]">Customer&nbsp;Stories</h2>
                             
                             <h3 className="heading-style-h3">
@@ -23,7 +23,7 @@ export function Stories() {
                                 </span>
                             </h3>
                         </div>
-                <Infinity />
+                        <Infinity />
                     </div>
                 </div>
             </section>
