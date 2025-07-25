@@ -6,6 +6,7 @@ import { Stories } from "@/components/stories";
 import { Separator } from "@/components/seperator";
 import { Middle } from "@/components/middle";
 import { Product } from "@/components/product";
+import { AiPowered } from "@/components/ai-powered";
 
 export default function Home() {
     return (
@@ -19,6 +20,10 @@ export default function Home() {
                     <Middle />
                     
                     <Product />
+
+                    <Middle />
+
+                    <AiPowered />
                     
                 </main>
             </div>

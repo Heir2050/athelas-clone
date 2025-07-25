@@ -1,0 +1,70 @@
+
+
+body {
+    background-color: red;
+}
+  .card {
+    position: relative;
+  }
+  
+  /* Styles spécifiques pour petits et moyens écrans */
+  @media (max-width: 768px) {
+    
+    
+    .card {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      margin-bottom: -50vh; /* Décalage négatif pour créer l'effet de superposition */
+    }
+    
+    /* Première carte - reste en bas */
+    .card.one {
+      z-index: 1;
+      position: sticky;
+      top: 0;
+    }
+    
+    /* Deuxième carte */
+    .card.two {
+      z-index: 2;
+      top: 0;
+    }
+    
+    /* Troisième carte */
+    .card.tree {
+      z-index: 3;
+      top: 0;
+    }
+    
+    /* Quatrième carte */
+    .card.four {
+      z-index: 4;
+      top: 0;
+      margin-bottom: 0; /* Dernière carte sans décalage négatif */
+    }
+  }
+  
+  /* Animation pour un effet plus fluide */
+  .card {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Variante alternative avec effet de scale */
+  @media (max-width: 768px) {
+    .card:not(.one) {
+      transform-origin: top center;
+    }
+    
+    .card.two {
+      transform: scale(0.95);
+    }
+    
+    .card.tree {
+      transform: scale(0.9);
+    }
+    
+    .card.four {
+      transform: scale(0.85);
+    }
+  }

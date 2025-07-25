@@ -1,7 +1,6 @@
 @import "tailwindcss";
 /* @import "./card-effect"; */
 
-
 /* Animation personnalisée slide-left */
 @layer utilities {
     @keyframes slide-right {
@@ -107,7 +106,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     white-space: nowrap;
-    /* background-color: var(--color-jaune); */
+    background-color: var(--color-jaune);
 }
 
 .btn.btn_demo {
@@ -225,7 +224,7 @@ nav ul li {
 }
 
 .container_main {
-    @apply z-1000 border-l-[var(--foreground)] border-r-[var(--foreground)] border-b-0 border-t-0 border  w-full max-w-[var(--max-width)] m-auto
+    @apply z-1000 border-l-gray-500 border-r-gray-500 border-b-0 border-t-0 border  w-full max-w-[var(--max-width)] m-auto
 }
 
 .separator {
@@ -236,12 +235,20 @@ nav ul li {
     @apply border border-b-[var(--text-color-primary)] border-[var(--text-color-primary)] w-full h-[4rem] border-r-0 border-l-0
 }
 
+/* .middle .container_main {
+    @apply pt-2 pb-2
+} */
+
+/* .middle_content {
+    @apply pt-4
+} */
+
 .uncement {
     @apply md:flex gap-[.5rem] md:items-center md:justify-center 
 }
 
 .btn_home {
-    @apply mt-[.75rem] md:mt-0 bg-[var(--color-jaune)]
+    @apply mt-[.75rem] md:mt-0
 }
 
 .has-padding {
@@ -324,63 +331,27 @@ nav ul li {
     
 }
 
+
 .ai-agent {
     @apply md:grid md:gap-x-4 md:gap-y-4 [grid-template-rows:auto] md:[grid-template-columns:minmax(0,27.5rem)_minmax(0,30rem)] [grid-auto-columns:1fr] justify-around p-6 text-base
 }
 
 /* AI Powered */
 .inside-ai {
-    @apply bg-[var(--dark-blue)] text-white
+    @apply bg-[var(--dark-blue)] text-white md
 }
 .heading-style-h3.ai-head {
     @apply text-[1.3rem] md:text-[2.5rem] px-0 py-4
 }
 
 .ai-powered .container_main.has-padding {
-    @apply pt-[7rem] rounded-tr-[4.5rem]
+    @apply pt-[7rem] rounded-tr-[4rem]
 }
 
-.ai_btn_div {
-    @apply my-[1.5rem]
-}
+/* .ai_inside {
+    @apply md:max-w-[48rem] m-auto
+} */
 
-.bloc_element {
-    @apply py-[3rem] border border-t-white border-r-0 border-l-0 border-b-0 
-}
-
-
-.blocs {
-    @apply text-left md:grid grid md:grid-cols-2
-}
-
-
-.bloc_element.left {
-    @apply  md:pr-8
-}
-
-.bloc_element.right {
-    @apply  md:pl-8
-}
-
-.boc_img {
-    @apply w-full h-[240px]
-}
-
-.bloc p {
-    @apply mb-[2.5rem] text-[1rem]
-}
-
-.border-right {
-    @apply md:border md:border-r-white md:border-b-0 md:border-l-0 md:border-t-0
-}
-
-.ai_inside {
-    @apply max-w-[40rem] m-auto
-}
-
-.img_ai_c {
-    filter: invert();
-}
 
 
 
@@ -480,6 +451,7 @@ nav ul li {
     /* font-family: satoshi; */
 }
 
+
 .btn_center:hover {
     opacity: .7;
 }
@@ -490,6 +462,7 @@ nav ul li {
     width: calc(100% + 11rem);
 }
 
+
 .box-team {
     position: absolute;
     top: 0;
@@ -498,14 +471,6 @@ nav ul li {
     height: 100%;
     border-radius: .5rem;
     background-image: linear-gradient(#000,#0000 40% 60%,#000);
-}
-
-/* Ai powered */
-.bloc_element {    
-    grid-column-gap: 1.125rem;
-    grid-row-gap: 1.125rem;
-    flex-flow: column;
-    display: flex;
 }
 
 
