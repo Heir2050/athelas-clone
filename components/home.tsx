@@ -63,7 +63,7 @@ export function HomePage() {
     
     return(
         <>
-            <section ref={sectionRef} className="hero_section section_black relative" style={{ minHeight: '150vh' }}>
+            <section ref={sectionRef} className="hero_section section_black relative" style={{ minHeight: '110vh' }}>
                 <div className="upper_hero padding_main">
                     <div className="container_main">
                         <div className="uncement">
@@ -84,8 +84,10 @@ export function HomePage() {
                 <div className="divider"></div>
 
                 <div className="down_hero padding_main">
-                    <div className="container_main bg-white h-[100vh]">
+                    <div className="container_main bg-white h-[80vh]">
                         <h1>Video Space</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-1"><rect x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_2141_34)"></rect><rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#8DBEFF"></rect></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-2"><rect x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_378_569)"></rect><rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#E9FDA3"></rect></svg>
                     </div>
                 </div>
                 {/* header component */}
@@ -96,7 +98,7 @@ export function HomePage() {
                                 <div className="container_main nav_container">
                                     <div className="flex items-center justify-between ">
                                         {/* logo  */}
-                                        <div className="flex-shrink-0">
+                                        <div className="flex-shrink-0" style={{maxWidth:"13%"}}>
                                             <Logo />
                                         </div>
 
@@ -131,13 +133,13 @@ export function HomePage() {
                                         </nav>
 
                                         {/* the demo button  */}
-                                        <div className="demo">
+                                        <div className="demos demo">
                                             <Link href="more" className="btn btn_demo bg-white border rounded-[10rem] text-[var(--text-color-primary)];">Get a Demo</Link>
                                         </div>
 
                                         {/* Menu hamburger mobile/tablette */}
                                         <button
-                                            className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center"
+                                            className="toggle_btn relative w-8 h-8 flex flex-col justify-center items-center"
                                             onClick={toggleMenu}
                                             aria-label="Toggle menu"
                                         >
@@ -155,7 +157,7 @@ export function HomePage() {
                                     </div>
 
                                     {/* Menu mobile/tablette */}
-                                    <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+                                    <div className={`mobile_tablet overflow-hidden transition-all duration-300 ease-in-out ${
                                         isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                     }`}>
                                         <nav className="py-4 border-t border-gray-200">
@@ -195,10 +197,7 @@ export function HomePage() {
                                                     </Link>
                                                 </li>
                                                 <li className="pt-4">
-                                                    <Link 
-                                                        href="more" className="inline-blockbtn btn_demo bg-white border rounded-[10rem] text-[var(--text-color-primary)];">
-                                                        Get a Demo
-                                                    </Link>
+                                                <Link href="more" className="btn btn_demo bg-white border rounded-[10rem] text-[var(--text-color-primary)];">Get a Demo</Link>
                                                 </li>
                                             </ul>
                                         </nav>

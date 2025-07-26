@@ -10,7 +10,8 @@ export function Stories() {
                         <div className="text-center paddind-bottom">
                             <h2 className="small_hidden section-sub-heading mb-[1.25rem]">Customer&nbsp;Stories</h2>
                             
-                            <h3 className="heading-style-h3">
+                            {/* <h3 className="heading-style-h3 heading-style"> */}
+                            <h3 className="heading-font heading-style">
                                 <span>Earn </span>
                                 <span className="text-highlight_wrap">
                                     <span>10% more revenue.</span>

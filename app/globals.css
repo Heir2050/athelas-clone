@@ -37,20 +37,20 @@
 @font-face {
     font-family: 'america';
 	src: url('../fonts/gt/GT-America-Extended-Light-Trial.otf');
-	font-weight: 600;
+	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
     font-family: 'satoshi';
-	src: url('../fonts/satoshi/Satoshi-Black.ttf');
+	src: url('../fonts/satoshi/Satoshi-Medium.ttf');
 	font-weight: 100;
 	font-style: normal;
 }
 
 :root {
-    --heading-font: 'america';
-    --font-body: 'satoshi';
+    --heading-font: america;
+    --font-body: satoshi;
 
     --background: #ffffff;
     --foreground: #171717;
@@ -67,7 +67,7 @@
 }
 
 body {
-    font-family: var(--font--body);
+    font-family: satoshi;
     color: var(--text-color-primary);
     background-color: #fff;
     font-size: 1rem;
@@ -105,7 +105,7 @@ body {
     text-align: center;
     letter-spacing: -.03em;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     white-space: nowrap;
     /* background-color: var(--color-jaune); */
 }
@@ -129,7 +129,6 @@ body {
 }
 
 .smaller {
-    font-size: .65rem;
     margin: 0 .5rem;
     font-family: satoshi;
 }
@@ -153,6 +152,8 @@ body {
 .style_logo_two {
     transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;
 }
+
+
 .nav_container {
     padding: .5rem 1.25rem;
 }
@@ -180,9 +181,47 @@ ul li ul {
 }
 
 nav ul li {
-    padding: 1.5rem .8rem;
-    font-size: .75rem;
+    padding: 1.2rem .8rem;
+    font-size: .85rem;
     color: #1e1e1e;
+}
+
+div.mobile_tablet{
+    @apply lg:hidden
+}
+
+.down_hero {
+    position: relative;
+}
+
+.pill_svg-element {
+    z-index: 1;
+    pointer-events: auto;
+    color: #f9d757;
+    width: 8rem;
+    max-width: 25%;
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    overflow: visible;
+}
+
+.pill_svg-element.is-2 {
+    color: #f9d757;
+    width: 8rem;
+    top: 3%;
+    bottom: auto;
+    left: -5rem;
+    z-index: 200;
+    /* right: 100%; */
+    transform: translate(50%) rotate(90deg);
+}
+
+.pill_svg-element.is-1 {
+    color: #d8edff;
+    bottom: 25%;
+    left: 95%;
 }
 
 /* Stories */
@@ -212,6 +251,10 @@ nav ul li {
     height: 400px;
 }
 
+.smaller {
+    @apply text-[.65rem] md:text-[.85rem]
+}
+
 .cont_slider img {
     object-fit: cover;
 }
@@ -221,11 +264,15 @@ nav ul li {
 }
 
 .padding_main {
-    @apply px-[var(--padding-page)] overflow-hidden
+    @apply px-[1rem] md:px-[2.8rem] overflow-hidden
 }
 
 .container_main {
     @apply z-1000 border-l-[var(--foreground)] border-r-[var(--foreground)] border-b-0 border-t-0 border  w-full max-w-[var(--max-width)] m-auto
+}
+
+section.hero_section .container_main {
+    @apply border-l-gray-500 border-r-gray-500 border-b-0 border-t-0 border w-full m-auto
 }
 
 .separator {
@@ -233,7 +280,7 @@ nav ul li {
 }
 
 .middle {
-    @apply border border-b-[var(--text-color-primary)] border-[var(--text-color-primary)] w-full h-[4rem] border-r-0 border-l-0
+    @apply border border-b-[var(--text-color-primary)] border-[var(--text-color-primary)] w-full h-[2rem] lg:h-[4rem] border-r-0 border-l-0
 }
 
 .uncement {
@@ -244,12 +291,16 @@ nav ul li {
     @apply mt-[.75rem] md:mt-0 bg-[var(--color-jaune)]
 }
 
+button.toggle_btn {
+    @apply lg:hidden
+}
+
 .has-padding {
     @apply px-[1rem] md:px-[3rem]
 }
 
 .width-content {
-    @apply md:max-w-[27rem] m-auto
+    @apply md:max-w-[27rem] lg:max-w-[35rem] m-auto
 }
 
 .content_hero {
@@ -316,7 +367,7 @@ nav ul li {
 }
 
 .home-featured-products_grid img {
-    @apply object-contain relative md:p-4
+    @apply object-contain relative 
 }
 
 .home-featured-products_grid {
@@ -382,6 +433,12 @@ nav ul li {
     filter: invert();
 }
 
+.demos.demo, nav.nav {
+    @apply hidden lg:block
+}
+.inverted {
+    @apply p-4 pt-[4rem] bg-[var(--color-jaune)] rounded-[.625rem] md:p-0 md:bg-white rounded-[.625rem]
+}
 
 
 
@@ -395,6 +452,8 @@ nav ul li {
 .card:nth-child(1) {
     background-color: #162e3b;
     color: white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .card:nth-child(1)::before {
@@ -415,6 +474,8 @@ nav ul li {
   
 .card:nth-child(2) {
     background-color: #d4eaf4;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .card:nth-child(2)::before {
@@ -434,6 +495,8 @@ nav ul li {
     background-color: #eeeff1;
     inset: auto 0% 0% auto;
     transition: all 0.3s ease;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .card:nth-child(3)::before {
@@ -465,6 +528,7 @@ nav ul li {
 
 .side_middle_btn {
     top: 50%;
+    cursor: pointer;
     left: -4px;
     transform: translate(-50%, -50%);
     background: #fdf8ec;
@@ -472,6 +536,20 @@ nav ul li {
     height: 2.3rem;
     font-size: 1rem;
     border-radius: 50%;
+    z-index: 1;
+}
+
+.side_middle_btn_right {
+    top: 50%;
+    cursor: pointer;
+    right: -2.5rem;
+    transform: translate(-50%, -50%);
+    background: #fdf8ec;
+    width: 2.3rem;
+    height: 2.3rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    z-index: 1;
 }
 
 .products_text {
@@ -606,17 +684,10 @@ nav ul li {
 
 
 
-
-
-
 @media screen and (max-width: 767px) {
     .heading-style {
         font-size: 2rem;
         
-    }
-    .padding_main {
-        padding-left: 1rem;
-        padding-right: 1rem;
     }
     .width-content {
         width: 100%;
@@ -624,20 +695,26 @@ nav ul li {
         margin: 0 auto;
     }
     /* header */
-    .nav, .demo {
+    /* .nav, .demo {
         display: none;
-    }
-    .haburger_menu {
-        display: initial;
-    }
+    } */
 }
 
 @media screen and (max-width: 479px) {
     .heading-style {
         font-size: 1.2rem;
     }
+    .heading-style.productss {
+        font-size: 1.6rem;
+    }
     .smaller {
         font-size: .65rem;
     }
 }
 
+
+@media screen and (max-width: 1024px) {
+    .mobile_tablet {
+        display: flex;
+    }
+}
