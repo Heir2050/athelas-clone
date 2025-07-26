@@ -7,6 +7,7 @@ import { Separator } from "@/components/seperator";
 import { Middle } from "@/components/middle";
 import { Product } from "@/components/product";
 import { AiPowered } from "@/components/ai-powered";
+import { Partner } from "@/components/partner";
 
 export default function Home() {
     return (
@@ -24,6 +25,8 @@ export default function Home() {
                     <Middle />
 
                     <AiPowered />
+
+                    <Partner />
                     
                 </main>
             </div>
