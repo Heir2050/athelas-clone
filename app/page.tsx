@@ -26,7 +26,7 @@ export default function Home() {
 
                     <AiPowered />
 
-                    <Partner />
+                    {/* <Partner /> */}
                     
                 </main>
             </div>

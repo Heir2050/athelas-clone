@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Partner } from "./partner";
+import { AiAutomations } from "./ai-automations";
 
 
 export function AiPowered() {
@@ -75,6 +77,9 @@ export function AiPowered() {
                     </div>
                 </div>
             </div>
+            <Partner />
+
+            <AiAutomations />
         </div>
     )
 }

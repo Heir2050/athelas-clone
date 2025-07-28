@@ -86,6 +86,9 @@ body {
     line-height: 1;
 }
 
+.heading_letter_spacing {
+    letter-spacing: -.03em;
+}
 
 .uncement {
     font-size: .875rem;;
@@ -318,7 +321,7 @@ button.toggle_btn {
 }
 
 .heading-style-h3 {
-    @apply text-[1.5rem] px-8
+    @apply text-[1.5rem] px-8 
 }
 
 .mr-slide {
@@ -389,7 +392,7 @@ button.toggle_btn {
 }
 
 .ai-powered .container_main.has-padding {
-    @apply pt-[7rem] rounded-tr-[4.5rem]
+    @apply pt-[7rem] rounded-tr-[4.5rem] pb-[11rem]
 }
 
 .ai_btn_div {
@@ -442,7 +445,10 @@ button.toggle_btn {
 }
 
 /* Partner */
-.inside_partner {
+.partner{
+    @apply -mt-[7rem] 
+}
+.inside_partner, .inside_ai-automations {
     @apply bg-[var(--partner)] text-[#1e1e1e]
 }
 
@@ -462,11 +468,71 @@ button.toggle_btn {
 }
 
 .partner .container_main.has-padding {
-    @apply pt-[7rem] rounded-tl-[4.5rem] relative z-2
+    @apply pt-[7rem] rounded-tl-[4.5rem] rounded-tr-none relative z-2 pb-[11rem]
 }
 
+/* AI Automations */
+.ai-automations {
+    @apply -mt-[7rem]
+}
+.ai-automations .container_main.has-padding {
+    @apply rounded-tr-[4.5rem] rounded-tl-none relative z-2 
+}
+.automations-blocs {
+    padding-top: 1rem;
+}
+.inside_ai-automations {
+    @apply bg-[#eeeff1] border border-t-black
+}
 
+.auto_bloc {
+    padding: 2.75rem 1.75rem 2.75rem 0rem;
+}
 
+.home-product_tabs-menu {
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
+    align-self: flex-end;
+    width: 50%;
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+    padding-right: 2.5rem;
+    display: flex;
+    position: sticky;
+    bottom: 0px;
+    flex-flow: column;
+    flex: 1 1 0%;
+}
+.home-product_tabs {
+    @apply  md:flex 
+}
+.home-product_tabs {
+    border-top: 1px solid black;
+}
+.home-product_tabs-content {
+    z-index: 1;
+    background-color: var(--products-color--air);
+    border-left-style: solid;
+    border-left-width: 1px;
+    flex-flow: column;
+    justify-content: center;
+    width: 50%;
+    max-height: 100vh;
+    padding-left: 2.5rem;
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+.home-product_tab-pane.w--tab-active {
+    animation: fadeIn 0.5s ease forwards;
+}
+.auto_img {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 100%;
+    max-height: 65vh;
+    display: block;
+}
 
 
 /* Partner */
