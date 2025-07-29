@@ -86,8 +86,10 @@ export function HomePage() {
                 <div className="down_hero padding_main">
                     <div className="container_main bg-white h-[80vh]">
                         <h1>Video Space</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-1"><rect x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_2141_34)"></rect><rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#8DBEFF"></rect></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-2"><rect x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_378_569)"></rect><rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#E9FDA3"></rect></svg>
+                        <svg  width="100%" viewBox="0 0 196 72" className="pill_svg-element is-1">
+                            <rect className="paint0_linear_2141_34" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_2141_34)"></rect><rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#8DBEFF"></rect></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-2" style={{zIndex:"100"}}>
+                            <rect className="paint0_linear_378_569" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_378_569)"></rect><rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#E9FDA3"></rect></svg>
                     </div>
                 </div>
                 {/* header component */}
@@ -106,7 +108,7 @@ export function HomePage() {
                                         <nav className="nav">
                                             <ul className="flex items-center justify-between text-white">
                                                 <li>
-                                                    <Link href="#">Company</Link>
+                                                    <Link className="nav_menu_link" href="#">Company</Link>
                                                     <ul>
                                                         <li>Sous menu 1</li>
                                                         <li>Sous menu 2</li>
@@ -114,20 +116,20 @@ export function HomePage() {
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">Product Suite</Link>
+                                                    <Link className="nav_menu_link" href="#">Product Suite</Link>
                                                     <ul>
                                                         <li>Sous menu 1</li>
                                                         <li>Sous menu 2</li>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">Contact</Link>
+                                                    <Link className="nav_menu_link" href="#">Contact</Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">Case Studies</Link>
+                                                    <Link className="nav_menu_link" href="#">Case Studies</Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">Insight</Link>
+                                                    <Link className="nav_menu_link" href="#">Insight</Link>
                                                 </li>
                                             </ul>
                                         </nav>

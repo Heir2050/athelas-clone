@@ -77,6 +77,7 @@ export function AiPowered() {
                     </div>
                 </div>
             </div>
+            
             <Partner />
 
             <AiAutomations />
