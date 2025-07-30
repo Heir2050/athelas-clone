@@ -85,11 +85,15 @@ export function HomePage() {
 
                 <div className="down_hero padding_main">
                     <div className="container_main bg-white h-[80vh]">
-                        <h1>Video Space</h1>
+                        {/* <h1>Video Space</h1> */}
                         <svg  width="100%" viewBox="0 0 196 72" className="pill_svg-element is-1">
-                            <rect className="paint0_linear_2141_34" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_2141_34)"></rect><rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#8DBEFF"></rect></svg>
+                            <rect className="paint0_linear_2141_34" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_2141_34)"></rect>
+                            <rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#8DBEFF"></rect>
+                        </svg>
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-2" style={{zIndex:"100"}}>
-                            <rect className="paint0_linear_378_569" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_378_569)"></rect><rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#E9FDA3"></rect></svg>
+                            <rect className="paint0_linear_378_569" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_378_569)"></rect>
+                            <rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#E9FDA3"></rect>
+                        </svg>
                     </div>
                 </div>
                 {/* header component */}
@@ -100,7 +104,7 @@ export function HomePage() {
                                 <div className="container_main nav_container">
                                     <div className="flex items-center justify-between ">
                                         {/* logo  */}
-                                        <div className="flex-shrink-0" style={{maxWidth:"13%"}}>
+                                        <div className="flex-shrink-0 w-[15%] md:w-[13%]">
                                             <Logo />
                                         </div>
 

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/* @import "./card-effect"; */
+/* @import "./inverted"; */
 
 
 /* Animation personnalisée slide-left */
@@ -20,7 +20,7 @@
     /* .animation-pause {
       animation-play-state: paused;
     } */
-  }
+}
 
 /* @layer utilities {
     .animation-pause {
@@ -147,8 +147,6 @@ body {
     opacity: 1;
     transform: scale(1);
 }
-
-
 
 .paint0_linear_378_569 {
     fill:  #ee6f2e;
@@ -287,12 +285,6 @@ font-size: .85rem;
     background-size: 100% 100%;
 }
 
-
-
-
-
-
-
 div.mobile_tablet{
     @apply lg:hidden
 }
@@ -358,6 +350,14 @@ div.mobile_tablet{
     height: 400px;
 }
 
+/* .placeholders {
+    @apply flex fle-col items-center justify-center w-full h-full
+}
+
+.placeholders {
+    color: red;
+} */
+
 .smaller {
     @apply text-[.65rem] md:text-[1rem]
 }
@@ -371,7 +371,7 @@ div.mobile_tablet{
 }
 
 .padding_main {
-    @apply px-[1rem] md:px-[2.8rem] overflow-hidden
+    @apply px-[1rem] md:px-[2.8rem] overflow-x-hidden
 }
 
 .container_main {
@@ -464,15 +464,35 @@ button.toggle_btn {
     @apply bg-black
 }
 
+.infinity {
+    margin-left: -6rem;
+    margin-right: -6rem;
+    width: calc(100% + 12rem);
+}
+
+.box-team {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
+    background-image: linear-gradient(#000,#0000 40% 60%,#000);
+}
+
+/* Products */
+
 .product {
     @apply text-black
 }
 
-/* Products */
+.product .padding_main {
+    @apply overflow-x-visible
+}
+
 .home-featured-products {
     @apply p-4 md:p-[1.5rem]
 }
-
 
 .home-featured-products_grid {
     @apply grid grid-cols-1 md:grid-cols-3 gap-x-2 gap-y-2 justify-center overflow-x-clip relative
@@ -489,6 +509,158 @@ button.toggle_btn {
 
 .ai-agent {
     @apply md:grid md:gap-x-4 md:gap-y-4 [grid-template-rows:auto] md:[grid-template-columns:minmax(0,27.5rem)_minmax(0,30rem)] [grid-auto-columns:1fr] justify-around p-6 text-base
+}
+
+.inverted {
+    position: relative;
+}
+
+.card {
+    @apply sticky flex items-center justify-center text-center cursor-pointer rounded-[.625rem] md:relative
+}
+
+.card .hug_img {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .hug_img {
+    transform: scale(0.95); /* Zoom léger vers l’intérieur */
+}
+
+/* .card:nth-child(1) {
+    background-color: #162e3b;
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    top: 50px;
+} */
+
+.card:nth-child(1) {
+    @apply bg-[#162e3b] text-white my-[2rem] top-[50px] md:top-0 md:my-0 md:mt-[2rem]
+}
+
+.card:nth-child(1) .smaller_img {
+    filter: invert();
+}
+.card:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 5rem;
+    border-radius: inherit;
+    background-color: inherit;
+    transform: translateY(-50%);
+}
+
+  
+/* .card:nth-child(2) {
+    background-color: #d4eaf4;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    z-index: 10;
+
+    top: 80px;
+} */
+
+.card:nth-child(2) {
+    @apply bg-[#d4eaf4] my-[2rem] z-10 top-[80px] md:top-0 md:my-0 md:mt-[2rem]
+}
+
+.outside-box {
+    /* content: ''; */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 3.75rem;
+    border-radius: inherit;
+    background-color: inherit;
+    transform: translateY(50%);
+    z-index: 20;
+}
+  
+/* .card:nth-child(3) {
+    background-color: #eeeff1;
+    inset: auto 0% 0% auto;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    top: 110px;
+    z-index: 10;
+} */
+
+.card:nth-child(3) {
+    @apply bg-[#eeeff1] my-[2rem] z-10 top-[110px] md:top-0 md:my-0 md:mt-[2rem] md:z-0
+}
+
+.card:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 3.75rem;
+    border-radius: inherit;
+    background-color: inherit;
+    transform: translateY(-50%);
+}
+
+.card:nth-child(4) {
+    @apply top-[140px] z-11 md:top-0 md:my-0
+}
+
+.card .smaller_img {
+    height: 2.5rem;
+    margin-bottom: .5rem;
+}
+
+.four {
+    background-color: #fbff95;
+}
+
+.four p {
+    font-size: .8rem;
+    color: var(--text-color-primary);
+    font-family: satoshi;
+}
+
+.side_middle_btn {
+    top: 50%;
+    cursor: pointer;
+    left: -4px;
+    transform: translate(-50%, -50%);
+    background: #fdf8ec;
+    width: 2.3rem;
+    height: 2.3rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.side_middle_btn_right {
+    top: 50%;
+    cursor: pointer;
+    right: -2.5rem;
+    transform: translate(-50%, -50%);
+    background: #fdf8ec;
+    width: 2.3rem;
+    height: 2.3rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.products_text {
+    line-height: 1.2;
+    z-index: 10;
+    /* font-family: satoshi; */
+}
+
+.btn_center:hover {
+    opacity: .7;
 }
 
 /* AI Powered */
@@ -515,11 +687,9 @@ button.toggle_btn {
     @apply py-[3rem] border border-t-white border-r-0 border-l-0 border-b-0 
 }
 
-
 .blocs {
     @apply text-left md:grid grid md:grid-cols-2
 }
-
 
 .bloc_element.left {
     @apply  md:pr-8
@@ -582,6 +752,47 @@ button.toggle_btn {
 .partner .container_main.has-padding {
     @apply pt-[7rem] rounded-tl-[4.5rem] rounded-tr-none relative z-2 pb-[11rem]
 }
+
+.home-product_ambient-ai_grid {
+    grid-column-gap: 2.5rem;
+    grid-row-gap: 2.5rem;
+    border-top: 1px solid var(--ui-styles--line-color);
+    grid-template-rows: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-auto-columns: 1fr;
+    padding-top: 2.5rem;
+    display: grid;
+}
+
+.home-product_ambient-ai_info-grid {
+    grid-column-gap: 1rem;
+    grid-row-gap: 3rem;
+    grid-template-rows: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-auto-columns: 1fr;
+    align-self: end;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    display: grid;
+}
+
+.ambient_video {
+    clear: none;
+    text-align: center;
+    border-radius: 0;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    margin: 40px auto;
+    text-decoration: none;
+    display: block;
+    position: static;
+}
+
+/* .partner_blocs_elements {
+    @apply 
+} */
+
 
 /* AI Automations */
 .ai-automations {
@@ -646,210 +857,6 @@ button.toggle_btn {
     display: block;
 }
 
-
-/* Partner */
-.home-product_ambient-ai_grid {
-    grid-column-gap: 2.5rem;
-    grid-row-gap: 2.5rem;
-    border-top: 1px solid var(--ui-styles--line-color);
-    grid-template-rows: auto;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-    grid-auto-columns: 1fr;
-    padding-top: 2.5rem;
-    display: grid;
-}
-
-.home-product_ambient-ai_info-grid {
-    grid-column-gap: 1rem;
-    grid-row-gap: 3rem;
-    grid-template-rows: auto;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-auto-columns: 1fr;
-    align-self: end;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    display: grid;
-}
-
-.ambient_video {
-    clear: none;
-    text-align: center;
-    border-radius: 0;
-    justify-content: space-between;
-    align-items: center;
-    width: 75%;
-    margin: 40px auto;
-    text-decoration: none;
-    display: block;
-    position: static;
-}
-
-/* .partner_blocs_elements {
-    @apply 
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-.card {
-    border-radius: .625rem;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-}
-
-.card .hug_img {
-    transition: transform 0.3s ease;
-}
-
-.card:hover .hug_img {
-    transform: scale(0.95); /* Zoom léger vers l’intérieur */
-}
-
-
-.card:nth-child(1) {
-    background-color: #162e3b;
-    color: white;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.card:nth-child(1)::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 30%;
-    height: 5rem;
-    border-radius: inherit;
-    background-color: inherit;
-    transform: translateY(-50%);
-}
-
-.card:nth-child(1) .smaller_img {
-    filter: invert();
-}
-  
-.card:nth-child(2) {
-    background-color: #d4eaf4;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 10;
-}
-
-.outside-box {
-    /* content: ''; */
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 60%;
-    height: 3.75rem;
-    border-radius: inherit;
-    background-color: inherit;
-    transform: translateY(50%);
-    z-index: 5;
-}
-  
-.card:nth-child(3) {
-    background-color: #eeeff1;
-    inset: auto 0% 0% auto;
-    transition: all 0.3s ease;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-top: -2rem
-}
-
-.card:nth-child(3)::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 3.75rem;
-    border-radius: inherit;
-    background-color: inherit;
-    transform: translateY(-50%);
-}
-
-
-
-.card .smaller_img {
-    height: 2.5rem;
-    margin-bottom: .5rem;
-}
-
-.four {
-    background-color: #fbff95;
-}
-
-.four p {
-    font-size: .8rem;
-    color: var(--text-color-primary);
-    font-family: satoshi;
-}
-
-.side_middle_btn {
-    top: 50%;
-    cursor: pointer;
-    left: -4px;
-    transform: translate(-50%, -50%);
-    background: #fdf8ec;
-    width: 2.3rem;
-    height: 2.3rem;
-    font-size: 1rem;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.side_middle_btn_right {
-    top: 50%;
-    cursor: pointer;
-    right: -2.5rem;
-    transform: translate(-50%, -50%);
-    background: #fdf8ec;
-    width: 2.3rem;
-    height: 2.3rem;
-    font-size: 1rem;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.products_text {
-    line-height: 1.2;
-    z-index: 10;
-    /* font-family: satoshi; */
-}
-
-.btn_center:hover {
-    opacity: .7;
-}
-
-.infinity {
-    margin-left: -6rem;
-    margin-right: -6rem;
-    width: calc(100% + 12rem);
-}
-
-.box-team {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: .5rem;
-    background-image: linear-gradient(#000,#0000 40% 60%,#000);
-}
-
 /* Ai powered */
 .bloc_element {    
     grid-column-gap: 1.125rem;
@@ -857,102 +864,34 @@ button.toggle_btn {
     flex-flow: column;
     display: flex;
 }
-
-
-
-
-
-/* Effet de section sticky avec cartes empilées pour petits et moyens écrans */
-/* @media (max-width: 768px) {
-    .inverted {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow: hidden;
-    }
+/* 
+    @media (min-width: 768px) {
+        .sticky-wrapper {
+        position: sticky;
+        top: 100px; 
+        height: 100vh;
+        overflow: hidden;
+        }
     
-    .home-featured-products_grid {
-      display: block;
-      height: 400vh; 
-    }
+        .stacked-card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: transform 0.3s ease, z-index 0.3s ease;
+        }
     
-    .card {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      transform: translateY(100vh); 
-    }
+        .stacked-card:not(.entered) {
+        transform: translateY(100%);
+        z-index: 0;
+        }
     
-    .card.one {
-      z-index: 1;
-      transform: translateY(0); 
-    }
-    
-    .card.two {
-      z-index: 2;
-      transform: translateY(100vh);
-      animation: slideUp2 linear forwards;
-      animation-timeline: scroll(root);
-      animation-range: 25vh 125vh;
-    }
-    
-    .card.tree {
-      z-index: 3;
-      transform: translateY(100vh);
-      animation: slideUp3 linear forwards;
-      animation-timeline: scroll(root);
-      animation-range: 125vh 225vh;
-    }
-    
-    .card.four {
-      z-index: 4;
-      transform: translateY(100vh);
-      animation: slideUp4 linear forwards;
-      animation-timeline: scroll(root);
-      animation-range: 225vh 325vh;
-    }
-  }
-  
-  @keyframes slideUp2 {
-    to { transform: translateY(0); }
-  }
-  
-  @keyframes slideUp3 {
-    to { transform: translateY(0); }
-  }
-  
-  @keyframes slideUp4 {
-    to { transform: translateY(0); }
-  } */
-@media (min-width: 768px) {
-    .sticky-wrapper {
-      position: sticky;
-      top: 100px; /* ajustable */
-      height: 100vh;
-      overflow: hidden;
-    }
-  
-    .stacked-card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      transition: transform 0.3s ease, z-index 0.3s ease;
-    }
-  
-    .stacked-card:not(.entered) {
-      transform: translateY(100%);
-      z-index: 0;
-    }
-  
-    .stacked-card.entered {
-      transform: translateY(0%);
-      z-index: 10;
-    }
-}
-    
-
-
+        .stacked-card.entered {
+        transform: translateY(0%);
+        z-index: 10;
+        }
+    } 
+*/
 
 @media screen and (min-width: 767px) {
     .partner_blocs {
@@ -995,7 +934,6 @@ button.toggle_btn {
         font-size: .65rem;
     }
 }
-
 
 @media screen and (max-width: 1024px) {
     .mobile_tablet {

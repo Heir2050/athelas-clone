@@ -25,7 +25,7 @@ export function InvertedBoxes() {
                         <div className="hidden md:flex absolute items-center justify-center side_middle_btn_right">
                             <Plus className=" plus_btn" size={20}/>
                         </div>
-                        <div className="outside-box"></div>
+                        <div className="outside-box"></div> 
                     </div>
                     <div className="card tree">
                         <div className="home-featured-products">
