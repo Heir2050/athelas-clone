@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Partner } from "./partner";
 import { AiAutomations } from "./ai-automations";
+import ScrollImageSync from "./scroll-image";
 
 
 export function AiPowered() {
@@ -80,7 +81,9 @@ export function AiPowered() {
             
             <Partner />
 
-            <AiAutomations />
+            {/* <AiAutomations /> */}
+
+            <ScrollImageSync />
         </div>
     )
 }

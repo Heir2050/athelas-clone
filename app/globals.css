@@ -799,7 +799,7 @@ button.toggle_btn {
     @apply -mt-[7rem]
 }
 .ai-automations .container_main.has-padding {
-    @apply rounded-tr-[4.5rem] rounded-tl-none relative z-2 
+    @apply rounded-tr-[4.5rem] rounded-tl-none relative z-2 pl-0 pr-0
 }
 .automations-blocs {
     padding-top: 1rem;
@@ -809,7 +809,7 @@ button.toggle_btn {
 }
 
 .auto_bloc {
-    padding: 2.75rem 1.75rem 2.75rem 0rem;
+    padding: 2.75rem 1.75rem 2.75rem 3rem;
 }
 
 .home-product_tabs-menu {
@@ -832,38 +832,165 @@ button.toggle_btn {
 .home-product_tabs {
     border-top: 1px solid black;
 }
-.home-product_tabs-content {
-    z-index: 1;
-    background-color: var(--products-color--air);
-    border-left-style: solid;
-    border-left-width: 1px;
-    flex-flow: column;
-    justify-content: center;
-    width: 50%;
-    max-height: 100vh;
-    padding-left: 2.5rem;
-    display: flex;
-    position: sticky;
-    top: 0;
-}
-.home-product_tab-pane.w--tab-active {
-    animation: fadeIn 0.5s ease forwards;
-}
-.auto_img {
-    aspect-ratio: 1;
-    object-fit: contain;
-    width: 100%;
-    max-height: 65vh;
-    display: block;
+
+.ai-automations .padding_main {
+    overflow: visible;
 }
 
-/* Ai powered */
-.bloc_element {    
-    grid-column-gap: 1.125rem;
-    grid-row-gap: 1.125rem;
-    flex-flow: column;
-    display: flex;
+/* Debug pour sticky */
+.home-product_tabs-content {
+    background-color: #edeef0;
+    /* Debug: ajoute une bordure pour voir la zone */
+    /* border: 2px solid red; */
 }
+
+.home-product_tabs-content {
+    background-color: #edeef0;
+}
+
+.absolute.duration-700 {
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.is_active {
+    position: relative;
+
+}
+
+/* .is_active::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #e5e5e5;
+    left: -2rem;
+    top: 0;
+    z-index: -1;
+} */
+
+.auto_bloc {
+    @apply md:pl-12
+}
+    
+.auto_img {
+    max-height: 100%;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+}
+
+
+
+
+
+
+/* Styles pour mobile et tablet */
+@media screen and (max-width: 767px) {
+    .home-product_tabs {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    .home-product_tabs-menu {
+        order: 2; /* Le contenu en bas */
+        width: 100%;
+        padding: 2rem 0rem;
+        position: relative; /* Pas sticky sur mobile */
+        bottom: auto;
+        flex-flow: column;
+        flex: 1;
+    }
+    
+    .home-product_tabs-content {
+        order: 1; /* L'image en haut */
+        width: 100%;
+        height: 50vh; /* 50% de la hauteur de l'écran */
+        position: sticky !important; /* Force le sticky */
+        top: 3rem;
+        z-index: 10;
+        padding: .3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #edeef0;
+        /* border-bottom: 1px solid black; */
+    }
+
+    .home-product_tabs-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #edeef0;
+    }
+    
+    .auto_bloc {
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .auto_bloc:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Styles pour desktop (1024px et plus) */
+@media screen and (min-width: 1024px) {
+    .home-product_tabs {
+        display: flex;
+        min-height: 100vh;
+    }
+    
+    .home-product_tabs-menu {
+        column-gap: 0.5rem;
+        row-gap: 0.5rem;
+        align-self: flex-end;
+        width: 50%;
+        padding-top: 3.25rem;
+        padding-bottom: 3.25rem;
+        padding-right: 2.5rem;
+        display: flex;
+        position: sticky;
+        bottom: 0px;
+        flex-flow: column;
+        flex: 1 1 0%;
+    }
+    
+    .home-product_tabs-content {
+        z-index: 1;
+        background-color: var(--products-color--air);
+        /* border-left-style: solid;
+        border-left-width: 1px; */
+        flex-flow: column;
+        justify-content: center;
+        width: 50%;
+        height: 100vh;
+        padding-left: 2.5rem;
+        display: flex;
+        position: sticky;
+        top: 0;
+    }
+
+    .automations_explains {
+        @apply border md:border-l-black border-t-0 border-l-0 border-b-0 border-l-0
+    }
+    
+    .auto_bloc {
+        padding: 2.75rem 1.75rem 2.75rem 3rem;
+    }
+}
+
+
+
+
+
+
 /* 
     @media (min-width: 768px) {
         .sticky-wrapper {
@@ -903,6 +1030,17 @@ button.toggle_btn {
         grid-auto-columns: 1fr;
         padding-top: 2.5rem;
         display: grid;
+    }
+
+    /* Last section */
+    .auto_img {
+        aspect-ratio: 1;
+        object-fit: contain;
+        width: 100%;
+        display: block;
+        height: 400px;
+        margin-top: 8rem;
+        top: 2rem;
     }
     
 }
