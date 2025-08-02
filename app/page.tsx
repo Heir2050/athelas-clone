@@ -10,6 +10,7 @@ import { AiPowered } from "@/components/ai-powered";
 import { Partner } from "@/components/partner";
 
 export default function Home() {
+    
     return (
         <>
             <div className="wrapper">

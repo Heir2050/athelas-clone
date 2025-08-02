@@ -104,29 +104,23 @@ const AIAutomations = () => {
                     {/* Header Section */}
                     <div className="partner_inside">
                         <div className="text-center paddind-bottom py-16">
-                            <a href="#" className="inline-block">
-                                <div className="smaller_img block mx-auto pt-[1.25rem] mb-8">
-                                    <div className="w-12 h-12 bg-blue-600 rounded-lg mx-auto flex items-center justify-center">
-                                        <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </a>
+                            <Link href="#">
+                                <Image className="smaller_img block mx-auto pt-[1.25rem]" src="/air.svg" alt="logo" width={800} height={600} style={{ width: 'auto', height: '3rem', margin: '0 auto' }}/>
+                            </Link>
                             
-                            <h3 className="heading-style-h3 ai-head text-4xl lg:text-5xl font-bold mb-6" style={{letterSpacing:"-.03em"}}>
+                            <h3 className="heading-style-h3 ai-head mt-[.5rem]" style={{letterSpacing:"-.03em"}}>
                                 An EHR with integrated AI automations and beautiful workflows.
                             </h3>
-                            <p className="mt-[2rem] text-lg text-gray-600 max-w-2xl mx-auto">Say goodbye to admin work. Enjoy practicing medicine again.</p>
+                            <p className="mt-[2rem] text-lg max-w-2xl mx-auto">Say goodbye to admin work. Enjoy practicing medicine again.</p>
                             <div className="text-center ai_btn_div mt-8">
-                                <a href="more_stories" className="btn bg-black text-white rounded-[10rem] px-8 py-3 inline-block hover:bg-gray-800 transition-colors">Explore</a>
+                                <Link href="more_stories" className="btn bg-black text-white rounded-[10rem] px-8 py-3 inline-block hover:bg-gray-800 transition-colors">Explore</Link>
                             </div>
                         </div>
                     </div>
 
                     {/* Main Automations Section */}
                     <div className="automations-blocs">
-                        <div className="automations_contents home-product_tabs flex gap-12 items-start">
+                        <div className="automations_contents home-product_tabs flex items-start">
                           
                             {/* Content Menu */}
                             <div className="automations_explains home-product_tabs-menu flex-1" ref={scrollContainerRef}>
@@ -160,30 +154,6 @@ const AIAutomations = () => {
                                     </Link>
                                 ))}
                             </div>
-                          
-                            {/* Images Section */}
-                            {/* <div className="automations_images home-product_tabs-content flex-1 sticky top-8">
-                                <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-indigo-100">
-                                    {sections.map((section, index) => (
-                                        <div
-                                            key={index}
-                                            className={`absolute inset-0 transition-all duration-700 ${
-                                              activeIndex === index
-                                                ? 'opacity-100'
-                                                : 'opacity-0'
-                                            }`}
-                                        >
-                                            <Image
-                                                width={600}
-                                                height={400}
-                                                src={section.image}
-                                                className="auto_img w-full h-full object-contain"
-                                                alt={`Image for ${section.title}`}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div> */}
 
 
                             <div className="automations_images home-product_tabs-content flex-1 sticky top-8">

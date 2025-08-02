@@ -17,6 +17,34 @@ export function HomePage() {
     const sectionRef = useRef<HTMLElement>(null);
     const headerRef = useRef(null);
 
+    // Fonction utilitaire pour le scroll smooth programmatique
+    const scrollToSection = (elementId: string) => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            });
+        }
+    };
+
+    // Fonction pour scroll vers le haut de la page
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    // Fonction pour scroll vers une position spécifique
+    const scrollToPosition = (y: number) => {
+        window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+        });
+    };
+
     
     useEffect(() => {
         const handleScroll = () => {
@@ -104,7 +132,7 @@ export function HomePage() {
                                 <div className="container_main nav_container">
                                     <div className="flex items-center justify-between ">
                                         {/* logo  */}
-                                        <div className="flex-shrink-0 w-[15%] md:w-[13%]">
+                                        <div className="flex-shrink-0 w-[40%] md:w-[13%]">
                                             <Logo />
                                         </div>
 
