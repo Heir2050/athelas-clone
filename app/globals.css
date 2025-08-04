@@ -891,9 +891,9 @@ button.toggle_btn {
 .home-product_tabs {
     @apply  md:flex 
 }
-.home-product_tabs {
+/* .home-product_tabs {
     border-top: 1px solid black;
-}
+} */
 
 .ai-automations .padding_main {
     overflow: visible;

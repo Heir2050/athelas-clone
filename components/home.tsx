@@ -50,7 +50,7 @@ export function HomePage() {
     };
 
     const getHeaderClasses = () => {
-        const baseClasses = "w-full z-50 transition-all duration-300 ease-in-out border-t-1 border-b-1 border-[var(--text-color-primary)]";
+        const baseClasses = "w-full z-50 transition-all duration-300 ease-in-out border-t-1 border-b-1 border-[var(--text-color-primary)] rounded-b-r-[0.8rem] rounded-b-l-[0.8rem] md:rounded-0";
         if (isHeaderFixed && headerPosition === 'top') {
             return `fixed top-0 bg-white text-[var(--text-color-primary)] ${baseClasses}`;
         } else if (isHeaderFixed && headerPosition === 'bottom') {
@@ -89,7 +89,7 @@ export function HomePage() {
                             <rect className="paint0_linear_2141_34" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_2141_34)"></rect>
                             <rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#8DBEFF"></rect>
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-2" style={{zIndex:"100"}}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-2" style={{zIndex:"10"}}>
                             <rect className="paint0_linear_378_569" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_378_569)"></rect>
                             <rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#E9FDA3"></rect>
                         </svg>
@@ -100,7 +100,7 @@ export function HomePage() {
                     <div>
                         <div>
                             <div className="padding_main">
-                                <div className="container_main nav_container">
+                                <div className="container_main nav_container px-4" style={{padding: "1rem 1.25rem"}}>
                                     <div className="flex items-center justify-between ">
                                         {/* logo  */}
                                         <div className="flex-shrink-0 w-[40%] md:w-[13%]">
@@ -149,13 +149,13 @@ export function HomePage() {
                                             aria-label="Toggle menu"
                                         >
                                             <span 
-                                                className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ease-in-out ${
-                                                isMenuOpen ? 'rotate-45 translate-y-0.5' : ''
+                                                className={`block w-6 h-0.5 ${isHeaderFixed && headerPosition === 'bottom' ? 'bg-white' : 'bg-black'} transition-all duration-300 ease-in-out ${
+                                                !isMenuOpen ? 'rotate-90 translate-y-0.5' : ''
                                                 }`}
                                             ></span>
                                             <span 
-                                                className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ease-in-out mt-1 ${
-                                                isMenuOpen ? '-rotate-45 -translate-y-0.5' : ''
+                                                className={`block w-6 h-0.5 ${isHeaderFixed && headerPosition === 'bottom' ? 'bg-white' : 'bg-black'} transition-all duration-300 ease-in-out mt-1 ${
+                                                !isMenuOpen ? 'rotate-180 ' : ''
                                                 }`}
                                             ></span>
                                         </button>
@@ -169,7 +169,7 @@ export function HomePage() {
                             }`}>
                                 <nav className="py-4 border-t border-gray-200">
                                     <ul className="space-y-4">
-                                        <li>
+                                        <li style={{borderTop: "1px solid black"}}>
                                             <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">
                                                 Company
                                             </Link>
@@ -203,8 +203,8 @@ export function HomePage() {
                                                 Insight
                                             </Link>
                                         </li>
-                                        <div className="mx-4 my-4">
-                                            <Link href="more" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center">Get a Demo</Link>
+                                        <div style={{padding: ".3rem 1rem", paddingTop: "0.7rem"}}>
+                                            <Link href="more" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center justify-center">Get a Demo</Link>
                                         </div>
                                     </ul>
                                 </nav>

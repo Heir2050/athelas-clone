@@ -102,7 +102,7 @@ const AIAutomations = () => {
                 <div className="container_main has-padding inside_ai-automations max-w-7xl mx-auto px-4">
                   
                     {/* Header Section */}
-                    <div className="partner_inside">
+                    <div className="partner_inside has-padding">
                         <div className="text-center paddind-bottom py-16">
                             <Link href="#">
                                 <Image className="smaller_img block mx-auto pt-[1.25rem]" src="/air.svg" alt="logo" width={800} height={600} style={{ width: 'auto', height: '3rem', margin: '0 auto' }}/>
@@ -120,6 +120,9 @@ const AIAutomations = () => {
 
                     {/* Main Automations Section */}
                     <div className="automations-blocs">
+                        <div className='has-padding'>
+                            <div className="line w-full h-[1px] bg-black"></div>
+                        </div>
                         <div className="automations_contents home-product_tabs flex items-start">
                           
                             {/* Content Menu */}
