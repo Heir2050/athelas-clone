@@ -48,6 +48,10 @@ html.lenis body {
     }
 } */
 
+ .bg-fixeds a {
+    color: white;
+ }
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -156,7 +160,7 @@ body {
 }
 
 .btn.btn_demo {
-    background-color: white;
+    /* background-color: white; */
     position: relative;
 }
 
@@ -237,6 +241,13 @@ body {
 }
 /* header */
 /* Place le header en bas de sa section */
+.black-logo {
+    transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;
+}
+.black-logo-text {
+    transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;
+}
+
 .sticky-wrapper {
     position: relative;
     height: auto;
@@ -259,9 +270,9 @@ ul li ul {
 }
 
 nav ul li {
-    padding: 1.2rem .8rem;
+    /* padding: 1.2rem .8rem; */
     font-size: .85rem;
-    color: #1e1e1e;
+    /* color: #1e1e1e; */
 }
 
 /* .nav_menu_link {
@@ -293,8 +304,8 @@ font-size: .85rem;
     transition: all 0.4s ease;
 
     /* Texte noir par défaut */
-    color: #1e1e1e;
-    -webkit-text-fill-color: #1e1e1e;
+    /* color: #1e1e1e;
+    -webkit-text-fill-color: #1e1e1e; */
 
     /* Préparer le dégradé pour l’effet texte */
     background-image: linear-gradient(
@@ -320,6 +331,15 @@ font-size: .85rem;
 
     /* Animation du fond vers les extrémités */
     background-size: 100% 100%;
+}
+
+.nav_menu_link.text-left {
+    text-align: left;
+    margin-left: .5rem;
+}
+
+.mobile_tablet li {
+    @apply border border-t-0 border-r-0 border-l-0 pl-0
 }
 
 div.mobile_tablet{
@@ -372,6 +392,7 @@ div.mobile_tablet{
     font-family: var(--heading-font);
     font-size: 1.75rem;
     line-height: 1.2;
+    margin-top: 1rem;
     font-weight: var(--font--heading-font-weight);
     letter-spacing: var(--font--heading-letter-spacing);
 }
@@ -613,24 +634,28 @@ button.toggle_btn {
     right: 0;
     width: 60%;
     height: 3.75rem;
-    border-radius: inherit;
-    background-color: inherit;
+    border-radius: .5rem;
+    background-color: #d4eaf4;
     transform: translateY(50%);
-    z-index: 20;
+    /* box-shadow: 0 0 0 .5rem #fff; */
+    z-index: -1;
 }
+
+
   
-/* .card:nth-child(3) {
-    background-color: #eeeff1;
-    inset: auto 0% 0% auto;
-    transition: all 0.3s ease;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    top: 110px;
-    z-index: 10;
-} */
+.card:nth-child(2)::before {
+    content: "";
+    background-color: #d4eaf4;
+    width: 70%;
+    height: 5rem;
+    position: absolute;
+    bottom: 2.5rem;
+    right: 0;
+    transform: translateY(50%);
+}
 
 .card:nth-child(3) {
-    @apply bg-[#eeeff1] my-[2rem] z-10 top-[110px] md:top-0 md:my-0 md:mt-[2rem] md:z-0
+    @apply bg-[#eeeff1] my-[2rem] top-[110px] z-10 md:top-0 md:my-0 md:mt-[2rem] md:z-0
 }
 
 .card:nth-child(3)::before {
@@ -646,7 +671,7 @@ button.toggle_btn {
 }
 
 .card:nth-child(4) {
-    @apply top-[140px] z-11 md:top-0 md:my-0
+    @apply top-[140px] md:top-0 md:my-0 z-11 md:z-1
 }
 
 .card .smaller_img {
@@ -1069,6 +1094,11 @@ button.toggle_btn {
         display: grid;
     }
 
+    /* Products */
+    .outside-box {
+        box-shadow: 0 0 0 .5rem #fff;
+    }
+
     /* Last section */
     .auto_img {
         aspect-ratio: 1;
@@ -1111,7 +1141,7 @@ button.toggle_btn {
 }
 
 @media screen and (max-width: 1024px) {
-    .mobile_tablet {
-        display: flex;
-    }
+    /* .mobile_tablet {
+        display: initial;
+    } */
 }

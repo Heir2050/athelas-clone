@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box avec bordure personnalisée</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            background-color: #e8e8e8;
+            border-radius: 12px;
+        }
+
+        .outside-box {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 3.75rem;
+            border-radius: inherit;
+            background-color: #4a90e2;
+            transform: translateY(50%);
+            z-index: 20;
+        }
+
+        .outside-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            border-bottom: 3px solid #2c5aa0;
+            border-left: 3px solid #2c5aa0;
+            border-right: 3px solid #2c5aa0;
+        }
+
+        /* Version alternative avec bordure qui remonte */
+        .outside-box-alt {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 3.75rem;
+            border-radius: inherit;
+            background-color: #e74c3c;
+            transform: translateY(50%);
+            z-index: 20;
+            margin-top: 100px;
+        }
+
+        .outside-box-alt::after {
+            content: '';
+            position: absolute;
+            bottom: 100%; /* Place la bordure au-dessus de la box */
+            left: 20%;
+            width: 60%;
+            height: 20px; /* Hauteur de la "remontée" */
+            border-left: 3px solid #c0392b;
+            border-right: 3px solid #c0392b;
+            border-top: 3px solid #c0392b;
+        }
+
+        .label {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemples de bordures personnalisées</h1>
+    
+    <div class="container">
+        <div class="label">Bordure en dessous (40% marge)</div>
+        <div class="outside-box"></div>
+    </div>
+
+
+</body>
+</html>

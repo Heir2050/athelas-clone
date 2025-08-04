@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Header } from "./header";
 import { Logo } from "./logo";
+import { LogoWhite } from "./logo-white";
 
 import { Plus } from 'lucide-react';
 
@@ -16,35 +16,6 @@ export function HomePage() {
     // cette ligne a etait ajouter pour eviter l'erreur du typescript avec le souignement en rouge de la fonction getBoundingClientRect()
     const sectionRef = useRef<HTMLElement>(null);
     const headerRef = useRef(null);
-
-    // Fonction utilitaire pour le scroll smooth programmatique
-    const scrollToSection = (elementId: string) => {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-                inline: 'nearest'
-            });
-        }
-    };
-
-    // Fonction pour scroll vers le haut de la page
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
-
-    // Fonction pour scroll vers une position spécifique
-    const scrollToPosition = (y: number) => {
-        window.scrollTo({
-            top: y,
-            behavior: 'smooth'
-        });
-    };
-
     
     useEffect(() => {
         const handleScroll = () => {
@@ -79,13 +50,13 @@ export function HomePage() {
     };
 
     const getHeaderClasses = () => {
-        const baseClasses = "w-full z-50 transition-all duration-300 ease-in-out bg-white border-t-1 border-b-1 border-[var(--text-color-primary)]";
+        const baseClasses = "w-full z-50 transition-all duration-300 ease-in-out border-t-1 border-b-1 border-[var(--text-color-primary)]";
         if (isHeaderFixed && headerPosition === 'top') {
-            return `fixed top-0 ${baseClasses}`;
+            return `fixed top-0 bg-white text-[var(--text-color-primary)] ${baseClasses}`;
         } else if (isHeaderFixed && headerPosition === 'bottom') {
-            return `fixed bottom-0 ${baseClasses}`;
+            return `fixed bottom-0 bg-[var(--text-color-primary)] text-white ${baseClasses}`;
         } else {
-            return `absolute bottom-0 ${baseClasses}`;
+            return `absolute bottom-0 bg-white ${baseClasses}`;
         }
     };
     
@@ -133,12 +104,12 @@ export function HomePage() {
                                     <div className="flex items-center justify-between ">
                                         {/* logo  */}
                                         <div className="flex-shrink-0 w-[40%] md:w-[13%]">
-                                            <Logo />
+                                            {headerPosition === "bottom" ? <LogoWhite /> : <LogoWhite />}
                                         </div>
 
                                         {/* Navigation desktop */}
                                         <nav className="nav">
-                                            <ul className="flex items-center justify-between text-white">
+                                            <ul className="flex items-center justify-between">
                                                 <li>
                                                     <Link className="nav_menu_link" href="#">Company</Link>
                                                     <ul>
@@ -168,7 +139,7 @@ export function HomePage() {
 
                                         {/* the demo button  */}
                                         <div className="demos demo">
-                                            <Link href="more" className="btn btn_demo bg-white border rounded-[10rem] text-[var(--text-color-primary)];">Get a Demo</Link>
+                                            <Link href="more" className={`btn btn_demo border rounded-[10rem] ${isHeaderFixed ? 'bg-white text-[var(--text-color-primary)]' : 'bg-black text-white'}`}>Get a Demo</Link>
                                         </div>
 
                                         {/* Menu hamburger mobile/tablette */}
@@ -189,54 +160,54 @@ export function HomePage() {
                                             ></span>
                                         </button>
                                     </div>
-
-                                    {/* Menu mobile/tablette */}
-                                    <div className={`mobile_tablet overflow-hidden transition-all duration-300 ease-in-out ${
-                                        isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                                    }`}>
-                                        <nav className="py-4 border-t border-gray-200">
-                                            <ul className="space-y-4">
-                                                <li>
-                                                    <Link href="#" className="block text-gray-800 hover:text-blue-600 font-medium">
-                                                        Company
-                                                    </Link>
-                                                    <ul className="ml-4 mt-2 space-y-2">
-                                                        <li><Link href="#" className="block text-sm text-gray-600 hover:text-blue-600">Sous menu 1</Link></li>
-                                                        <li><Link href="#" className="block text-sm text-gray-600 hover:text-blue-600">Sous menu 2</Link></li>
-                                                        <li><Link href="#" className="block text-sm text-gray-600 hover:text-blue-600">Sous menu 3</Link></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <Link href="#" className="block text-gray-800 hover:text-blue-600 font-medium">
-                                                        Product Suite
-                                                    </Link>
-                                                    <ul className="ml-4 mt-2 space-y-2">
-                                                        <li><Link href="#" className="block text-sm text-gray-600 hover:text-blue-600">Sous menu 1</Link></li>
-                                                        <li><Link href="#" className="block text-sm text-gray-600 hover:text-blue-600">Sous menu 2</Link></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <Link href="#" className="block text-gray-800 hover:text-blue-600 font-medium">
-                                                        Contact
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link href="#" className="block text-gray-800 hover:text-blue-600 font-medium">
-                                                        Case Studies
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link href="#" className="block text-gray-800 hover:text-blue-600 font-medium">
-                                                        Insight
-                                                    </Link>
-                                                </li>
-                                                <li className="pt-4">
-                                                <Link href="more" className="btn btn_demo bg-white border rounded-[10rem] text-[var(--text-color-primary)];">Get a Demo</Link>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
                                 </div>
+                            </div>
+
+                            {/* Menu mobile/tablette */}
+                            <div className={`bg-white mobile_tablet overflow-hidden transition-all duration-300 ease-in-out ${
+                                isMenuOpen ?  'max-h-96 opacity-100 block inline-block w-full' : 'max-h-0 opacity-0 hidden'
+                            }`}>
+                                <nav className="py-4 border-t border-gray-200">
+                                    <ul className="space-y-4">
+                                        <li>
+                                            <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">
+                                                Company
+                                            </Link>
+                                            <ul className="ml-4 mt-2 space-y-2">
+                                                <li><Link href="#" className="nav_menu_link text-left block text-sm text-gray-600 hover:text-blue-600">Sous menu 1</Link></li>
+                                                <li><Link href="#" className="nav_menu_link text-left block text-sm text-gray-600 hover:text-blue-600">Sous menu 2</Link></li>
+                                                <li><Link href="#" className="nav_menu_link text-left block text-sm text-gray-600 hover:text-blue-600">Sous menu 3</Link></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">
+                                                Product Suite
+                                            </Link>
+                                            <ul className="ml-4 mt-2 space-y-2">
+                                                <li><Link href="#" className="nav_menu_link text-left block text-sm text-gray-600 hover:text-blue-600">Sous menu 1</Link></li>
+                                                <li><Link href="#" className="nav_menu_link text-left block text-sm text-gray-600 hover:text-blue-600">Sous menu 2</Link></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">
+                                                Contact
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">
+                                                Case Studies
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">
+                                                Insight
+                                            </Link>
+                                        </li>
+                                        <div className="mx-4 my-4">
+                                            <Link href="more" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center">Get a Demo</Link>
+                                        </div>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
