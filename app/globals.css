@@ -265,14 +265,70 @@ body {
     transition: all 0.3s ease;
 }
 
-ul li ul {
-    display: none;
-}
-
 nav ul li {
     /* padding: 1.2rem .8rem; */
     font-size: .85rem;
     /* color: #1e1e1e; */
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    transform: translate(0);
+    min-width: 15rem;
+    background: white;
+    box-shadow: 0 4px 4px 1px #0003;
+    overflow: hidden;
+    transition-property: all;
+    transition-duration: .2s;
+    transition-timing-function: ease;    
+    border: 1px solid black;
+    border-bottom-right-radius: 2.5rem;
+}
+
+a.sub-menu-link {
+    position: relative;
+    z-index: 1;
+    /* Pour que le ::before soit bien positionné */
+    overflow: hidden;
+}
+
+a.sub-menu-link::before {
+    content: "";
+    z-index: -1;
+    transform-origin: center;
+    opacity: 1;
+    background: #fbff95;
+    width: 100%;
+    height: 75%;
+    transition: transform .3s cubic-bezier(.77, 0, .18, 1);
+    position: absolute;
+    top: 5px;
+    margin: auto;
+    left: 0;
+    transform: scaleX(0);
+}
+
+a.sub-menu-link:hover::before,
+a.sub-menu-link:focus::before {
+    transform: scaleX(1);
+}
+
+nav ul li .sub-menu {
+    transition: all 0.9s ease;
+    margin-top: 8px;
+}
+
+nav ul li:hover .sub-menu {
+    display: initial;
+    transition: all 0.9s ease;
+}
+
+.sub-menu .sub-menu-link {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
 }
 
 /* .nav_menu_link {
@@ -300,6 +356,7 @@ font-size: .85rem;
     font-size: .85rem; 
     font-weight: 500;
     text-align: center;
+    cursor: pointer;
     letter-spacing: -0.03em;
     transition: all 0.4s ease;
 

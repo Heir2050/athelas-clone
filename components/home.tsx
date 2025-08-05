@@ -67,7 +67,7 @@ export function HomePage() {
                     <div className="container_main">
                         <div className="uncement">
                             <p className="smaller">Lattimore Physical Therapy &amp; Sports Rehabilitation Network Rolls Out Athelas Air to 35 Locations</p>
-                            <Link href="placeholders" className="btn btn_home bg-var[var(--color-jaune)] border rounded-[10rem] ">Learn More</Link>
+                            <Link href="more" className="btn btn_home bg-var[var(--color-jaune)] border rounded-[10rem] ">Learn More</Link>
                         </div>
                         <div className="content_hero text-center">
                             <div className="hero_small text-white">
@@ -100,7 +100,7 @@ export function HomePage() {
                     <div>
                         <div>
                             <div className="padding_main">
-                                <div className="container_main nav_container px-4" style={{padding: "1rem 1.25rem"}}>
+                                <div className="container_main nav_container px-4" style={{padding: ".5rem 1.25rem"}}>
                                     <div className="flex items-center justify-between ">
                                         {/* logo  */}
                                         <div className="flex-shrink-0 w-[40%] md:w-[13%]">
@@ -111,35 +111,38 @@ export function HomePage() {
                                         <nav className="nav">
                                             <ul className="flex items-center justify-between">
                                                 <li>
-                                                    <Link className="nav_menu_link" href="#">Company</Link>
-                                                    <ul>
-                                                        <li>Sous menu 1</li>
-                                                        <li>Sous menu 2</li>
-                                                        <li>Sous menu 3</li>
+                                                    <div className="nav_menu_link">Company</div>
+                                                    <ul className="sub-menu">
+                                                        <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders" >About</Link>
+                                                        <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders" >Taking Back Healthcare</Link>
+                                                        <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders" >partnerships</Link>
+                                                        <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px px-[1.75rem] py-[.75rem] block" href="placeholders" >Careers</Link>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <Link className="nav_menu_link" href="#">Product Suite</Link>
-                                                    <ul>
-                                                        <li>Sous menu 1</li>
-                                                        <li>Sous menu 2</li>
+                                                    <div className="nav_menu_link">Product Suite</div>
+                                                    <ul className="sub-menu">
+                                                        <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders" >Ambient AI</Link>
+                                                        <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders" >Air EHR</Link>
+                                                        <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders" >RCM</Link>
+                                                        <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px px-[1.75rem] py-[.75rem] block" href="placeholders" >Agents</Link>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <Link className="nav_menu_link" href="#">Contact</Link>
+                                                    <div className="nav_menu_link">Contact</div>
                                                 </li>
                                                 <li>
-                                                    <Link className="nav_menu_link" href="#">Case Studies</Link>
+                                                    <div className="nav_menu_link">Case Studies</div>
                                                 </li>
                                                 <li>
-                                                    <Link className="nav_menu_link" href="#">Insight</Link>
+                                                    <div className="nav_menu_link">Insight</div>
                                                 </li>
                                             </ul>
                                         </nav>
 
                                         {/* the demo button  */}
                                         <div className="demos demo">
-                                            <Link href="placeholders" className={`btn btn_demo border rounded-[10rem] ${isHeaderFixed ? 'bg-white text-[var(--text-color-primary)]' : 'bg-black text-white'}`}>Get a Demo</Link>
+                                            <Link href="more" className={`btn btn_demo border rounded-[10rem] ${isHeaderFixed ? 'bg-white text-[var(--text-color-primary)]' : 'bg-black text-white'}`}>Get a Demo</Link>
                                         </div>
 
                                         {/* Menu hamburger mobile/tablette */}
@@ -161,6 +164,7 @@ export function HomePage() {
                                         </button>
                                     </div>
                                 </div>
+                             
                             </div>
 
                             {/* Menu mobile/tablette */}
@@ -204,7 +208,7 @@ export function HomePage() {
                                             </Link>
                                         </li>
                                         <div style={{padding: ".3rem 1rem", paddingTop: "0.7rem"}}>
-                                            <Link href="placeholders" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center justify-center">Get a Demo</Link>
+                                            <Link href="more" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center justify-center">Get a Demo</Link>
                                         </div>
                                     </ul>
                                 </nav>
