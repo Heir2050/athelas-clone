@@ -10,7 +10,7 @@ export function Partner() {
                 <div className="container_main has-padding inside_partner">
                     <div className="partner_inside">
                         <div className="text-center paddind-bottom">
-                            <Link href="#">
+                            <Link href="placeholders">
                                 <Image className="smaller_img block mx-auto pt-[1.25rem]" src="/ambient.png" alt="logo" width={800} height={600} style={{ width: 'auto', height: '3rem', margin: '0 auto' }}/>
                             </Link>
                             
@@ -18,7 +18,7 @@ export function Partner() {
                                 More than a scribe, Ambient AI is a true partner in clinical facilitation.
                             </h3>
                             <div className="text-center ai_btn_div">
-                                <Link href="more_stories" className="btn bg-black text-white rounded-[10rem] ">Try Now</Link>
+                                <Link href="placeholders" className="btn bg-black text-white rounded-[10rem] ">Try Now</Link>
                             </div>
                         </div>
                     </div>

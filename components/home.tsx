@@ -67,7 +67,7 @@ export function HomePage() {
                     <div className="container_main">
                         <div className="uncement">
                             <p className="smaller">Lattimore Physical Therapy &amp; Sports Rehabilitation Network Rolls Out Athelas Air to 35 Locations</p>
-                            <Link href="more" className="btn btn_home bg-var[var(--color-jaune)] border rounded-[10rem] ">Learn More</Link>
+                            <Link href="placeholders" className="btn btn_home bg-var[var(--color-jaune)] border rounded-[10rem] ">Learn More</Link>
                         </div>
                         <div className="content_hero text-center">
                             <div className="hero_small text-white">
@@ -139,7 +139,7 @@ export function HomePage() {
 
                                         {/* the demo button  */}
                                         <div className="demos demo">
-                                            <Link href="more" className={`btn btn_demo border rounded-[10rem] ${isHeaderFixed ? 'bg-white text-[var(--text-color-primary)]' : 'bg-black text-white'}`}>Get a Demo</Link>
+                                            <Link href="placeholders" className={`btn btn_demo border rounded-[10rem] ${isHeaderFixed ? 'bg-white text-[var(--text-color-primary)]' : 'bg-black text-white'}`}>Get a Demo</Link>
                                         </div>
 
                                         {/* Menu hamburger mobile/tablette */}
@@ -204,7 +204,7 @@ export function HomePage() {
                                             </Link>
                                         </li>
                                         <div style={{padding: ".3rem 1rem", paddingTop: "0.7rem"}}>
-                                            <Link href="more" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center justify-center">Get a Demo</Link>
+                                            <Link href="placeholders" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center justify-center">Get a Demo</Link>
                                         </div>
                                     </ul>
                                 </nav>

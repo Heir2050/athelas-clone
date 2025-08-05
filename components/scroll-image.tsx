@@ -104,7 +104,7 @@ const AIAutomations = () => {
                     {/* Header Section */}
                     <div className="partner_inside has-padding">
                         <div className="text-center paddind-bottom py-16">
-                            <Link href="#">
+                            <Link href="placeholders">
                                 <Image className="smaller_img block mx-auto pt-[1.25rem]" src="/air.svg" alt="logo" width={800} height={600} style={{ width: 'auto', height: '3rem', margin: '0 auto' }}/>
                             </Link>
                             
@@ -113,7 +113,7 @@ const AIAutomations = () => {
                             </h3>
                             <p className="mt-[2rem] text-lg max-w-2xl mx-auto">Say goodbye to admin work. Enjoy practicing medicine again.</p>
                             <div className="text-center ai_btn_div mt-8">
-                                <Link href="more_stories" className="btn bg-black text-white rounded-[10rem] px-8 py-3 inline-block hover:bg-gray-800 transition-colors">Explore</Link>
+                                <Link href="placeholders" className="btn bg-black text-white rounded-[10rem] px-8 py-3 inline-block hover:bg-gray-800 transition-colors">Explore</Link>
                             </div>
                         </div>
                     </div>

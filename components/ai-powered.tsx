@@ -12,7 +12,7 @@ export function AiPowered() {
                 <div className="container_main has-padding inside-ai">
                     <div className="ai_inside">
                         <div className="text-center paddind-bottom">
-                            <Link href="#">
+                            <Link href="placeholders">
                                 <Image className="smaller_img img_ai_c block mx-auto pt-[1.25rem]" src="/insights.png" alt="logo" width={800} height={600} style={{ width: 'auto', height: '3rem', margin: '0 auto' }}/>
                             </Link>
                             
@@ -23,7 +23,7 @@ export function AiPowered() {
                                 Transform claim management, accelerate payments, and discover growth opportunities with the power of Artificial Intelligence.
                             </p>
                             <div className="text-center ai_btn_div">
-                                <Link href="more_stories" className="btn bg-white text-[var(--text-color-primary)] rounded-[10rem] text-[var(--text-color-primary)] ">Explore</Link>
+                                <Link href="placeholders" className="btn bg-white text-[var(--text-color-primary)] rounded-[10rem] text-[var(--text-color-primary)] ">Explore</Link>
                             </div>
                         </div>
                     </div>

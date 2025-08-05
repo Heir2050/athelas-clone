@@ -74,7 +74,7 @@ export function Infinity() {
                     </div>
                 </div>
                 <div className="text-center infinity_btn mt-[3rem]">
-                    <Link href="more_stories" className="btn btn_center bg-black border rounded-[10rem] text-[var(--text-color-primary)];">Read Customer Stories</Link>
+                    <Link href="placeholders" className="btn btn_center bg-black border rounded-[10rem] text-[var(--text-color-primary)];">Read Customer Stories</Link>
                 </div>
             </section>
         </>
