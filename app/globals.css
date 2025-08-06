@@ -47,6 +47,33 @@ html.lenis body {
         animation-play-state: paused;
     }
 } */
+/* annimation text */
+.text-highlight_wrap {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+  
+.text-highlight_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #fbff95; /* jaune */
+    z-index: -1;
+    transition: width 1s ease-in-out;
+    width: 0%;
+}
+  
+.text-highlight_bg.visible {
+    width: 100%;
+}
+/* annimation text end */
+
+
+
+
+
 
  .bg-fixeds a {
     color: white;
@@ -145,7 +172,7 @@ body {
     position: relative;
     display: inline-flex;
     padding: .5rem 1.75rem;
-    font-size: .875rem;
+    font-size: .8rem;
     transition: opacity .2s;
     text-align: center;
     letter-spacing: -.03em;
@@ -237,7 +264,7 @@ body {
 
 
 .nav_container {
-    padding: .5rem 1.25rem;
+    @apply py-4 px-[1.25rem] md:py-[.5rem]
 }
 /* header */
 /* Place le header en bas de sa section */
@@ -272,19 +299,27 @@ nav ul li {
 }
 
 .sub-menu {
-    display: none;
+    /* display: none; */
     position: absolute;
     transform: translate(0);
     min-width: 15rem;
     background: white;
     box-shadow: 0 4px 4px 1px #0003;
     overflow: hidden;
-    transition-property: all;
+    /* transition-property: all;
     transition-duration: .2s;
-    transition-timing-function: ease;    
+    transition-timing-function: ease;     */
     border: 1px solid black;
-    border-bottom-right-radius: 2.5rem;
+    /* border-bottom-right-radius: 2.5rem; */
 }
+
+.sub-menu-top {
+    top: 100%;
+  }
+  
+  .sub-menu-bottom {
+    bottom: 100%;
+  }
 
 a.sub-menu-link {
     position: relative;
@@ -312,16 +347,6 @@ a.sub-menu-link::before {
 a.sub-menu-link:hover::before,
 a.sub-menu-link:focus::before {
     transform: scaleX(1);
-}
-
-nav ul li .sub-menu {
-    transition: all 0.9s ease;
-    margin-top: 8px;
-}
-
-nav ul li:hover .sub-menu {
-    display: initial;
-    transition: all 0.9s ease;
 }
 
 .sub-menu .sub-menu-link {
@@ -435,6 +460,15 @@ div.mobile_tablet{
     color: #d8edff;
     bottom: 25%;
     left: 95%;
+}
+
+header {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Pour éviter le "clignotement" pendant les transitions */
+header.fixed {
+    will-change: transform;
 }
 
 /* Stories */
@@ -745,6 +779,61 @@ button.toggle_btn {
     color: var(--text-color-primary);
     font-family: satoshi;
 }
+
+/* For annimations last card */
+.card.four {
+    position: relative;
+    overflow: hidden;
+}
+
+.card.four::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* ou la couleur de fond de ta page */
+    z-index: 1;
+    transition: height 0.8s ease-in-out;
+    height: 100%;
+}
+
+.card.four.animate::before {
+    height: 0%;
+}
+
+.card.four {
+    position: relative;
+    overflow: hidden;
+    /* height: 100%; */
+}
+
+.card.four::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Point de départ en haut */
+    left: 0;
+    right: 0;
+    height: 0%;
+    background: #fff;
+    z-index: 1;
+    animation: revealTopToBottom 0.8s forwards;
+    animation-play-state: paused; /* Désactivé au départ */
+}
+
+.card.four.animate::before {
+    animation-play-state: running; /* Activé quand visible */
+}
+
+@keyframes revealTopToBottom {
+    from { height: 100% } /* Pleine hauteur au début */
+    to { height: 0% }     /* Réduit à rien à la fin */
+}
+
+  
+  
+  
 
 .side_middle_btn {
     top: 50%;

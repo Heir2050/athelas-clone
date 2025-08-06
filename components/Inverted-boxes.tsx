@@ -1,7 +1,31 @@
+"use client"
+
 import { Plus } from "lucide-react"
-import Image from "next/image"
+import Image from "next/image";
+import { useEffect, useRef, useState } from 'react';
 
 export function InvertedBoxes() {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.4 }
+        );
+
+        if (cardRef.current) {
+            observer.observe(cardRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     return(
         <>
             <div className="inverted">
@@ -36,7 +60,10 @@ export function InvertedBoxes() {
                             <p className="products_text relative leading-1.2">Boost payments faster with transparent, automated tools.</p>
                         </div>
                     </div>
-                    <div className="card four md:col-span-3">
+                    <div
+                        ref={cardRef}
+                        className={`card four md:col-span-3 ${visible ? 'animate' : ''}`}
+                    >
                         <div className="ai-agent">
                             <div>
                                 <Image className="h-[3rem]" src="/agents-logo.svg" alt="logo" width={800} height={600} style={{height: '3rem', marginBottom: '1rem' }}/>

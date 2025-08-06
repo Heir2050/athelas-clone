@@ -27,31 +27,25 @@ export function HomePage() {
     useEffect(() => {
         const handleScroll = () => {
             if (!sectionRef.current) return;
-    
+
             const section = sectionRef.current;
             const sectionRect = section.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-    
-            // 1. Si le bas de la section sort du haut du viewport
+
             if (sectionRect.bottom <= 0) {
                 setIsHeaderFixed(true);
                 setHeaderPosition('top');
-            } 
-            // 2. Si le bas de la section est visible dans le viewport
-            else if (sectionRect.bottom > 0 && sectionRect.bottom <= viewportHeight) {
+            } else if (sectionRect.bottom >= window.innerHeight) {
+                setIsHeaderFixed(true);
+                setHeaderPosition('bottom');
+            } else {
                 setIsHeaderFixed(false);
                 setHeaderPosition('bottom');
             }
-            // 3. Si le bas de la section dépasse le bas du viewport
-            else if (sectionRect.bottom > viewportHeight) {
-                setIsHeaderFixed(true);
-                setHeaderPosition('bottom');
-            }
         };
-    
+
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Appel initial pour définir l'état correct au chargement
-    
+        handleScroll();
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -71,16 +65,13 @@ export function HomePage() {
     };
 
     const getHeaderClasses = () => {
-        const baseClasses = "w-full z-50 border-t-1 border-b-1 border-[var(--text-color-primary)]";
-    
+        const baseClasses = "w-full z-50 transition-all duration-300 ease-in-out border-t-1 border-b-1 border-[var(--text-color-primary)] rounded-b-r-[0.8rem] rounded-b-l-[0.8rem] md:rounded-0";
         if (isHeaderFixed && headerPosition === 'top') {
-            return `${baseClasses} fixed top-0 bg-white text-[var(--text-color-primary)]`;
-        } 
-        else if (isHeaderFixed && headerPosition === 'bottom') {
-            return `${baseClasses} fixed bottom-0 bg-[var(--text-color-primary)] text-white`;
-        }
-        else {
-            return `${baseClasses} absolute bottom-0 bg-[var(--text-color-primary)] text-white`;
+            return `fixed top-0 bg-white text-[var(--text-color-primary)] border-black ${baseClasses}`;
+        } else if (isHeaderFixed && headerPosition === 'bottom') {
+            return `fixed bottom-0 bg-[var(--text-color-primary)] text-white ${baseClasses}`;
+        } else {
+            return `absolute bottom-0 bg-[var(--text-color-primary)] text-white ${baseClasses}`;
         }
     };
 
