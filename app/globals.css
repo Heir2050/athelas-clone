@@ -420,13 +420,39 @@ font-size: .85rem;
     margin-left: .5rem;
 }
 
+.mobile_tablet {
+    border-bottom-right-radius: .7rem;
+    border-bottom-left-radius: .7rem;
+}
+
 .mobile_tablet li {
     @apply border border-t-0 border-r-0 border-l-0 pl-0
+}
+
+.mobile_tablet::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    max-height: 100%;
+    width: 100%;
+    z-index: 100000;
+    background: #ff000021;
+    overflow: hidden;
 }
 
 div.mobile_tablet{
     @apply lg:hidden
 }
+
+/* .mobile_tablet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+} */
 
 .down_hero {
     position: relative;

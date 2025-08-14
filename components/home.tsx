@@ -19,10 +19,22 @@ export function HomePage() {
     const sectionRef = useRef<HTMLElement>(null);
     const headerRef = useRef(null);
 
+    const headerAnchorRef = useRef<HTMLDivElement>(null);
+
     // Pour savoir le positionnement du header
     const getSubMenuPosition = () => {
         return headerPosition === 'bottom' ? 'bottom-full' : 'top-full';
     };
+
+    // << Add inside HomePage >>
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth <= 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -55,8 +67,62 @@ export function HomePage() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Désactiver le défilement quand le menu est ouvert
+    useEffect(() => {
+        if (isMenuOpen) {
+            // Attendre un peu pour permettre le scroll automatique vers le haut
+            const timer = setTimeout(() => {
+                // Sauvegarder la position actuelle du scroll
+                const scrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${scrollY}px`;
+                document.body.style.width = '100%';
+            }, 600); // Délai suffisant pour permettre le scroll automatique
+
+            return () => clearTimeout(timer);
+        } else {
+            // Restaurer le défilement
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
+        }
+    }, [isMenuOpen]);
+
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
+        if (!isMobile) {
+            // Si le menu n'est pas ouvert et que le header n'est pas en position 'top' fixe
+            if (!isMenuOpen && !(isHeaderFixed && headerPosition === 'top')) {
+                // Faire défiler jusqu'à la position où le header sera en 'top' (fin du header)
+                headerAnchorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Attendre que le scroll soit terminé avant d'ouvrir le menu
+                setTimeout(() => {
+                    setIsMenuOpen(true);
+                }, 500);
+            } else {
+                setIsMenuOpen(!isMenuOpen);
+            }
+            return;
+        }
+      
+        if (!isMenuOpen) {
+            // 1. scroll so the anchor is at the very top
+            headerAnchorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+            // 2. after scroll (allow one frame), open the drawer
+            requestAnimationFrame(() => {
+                setIsHeaderFixed(true);
+                setHeaderPosition('top');
+                setIsMenuOpen(true);
+            });
+        } else {
+          // closing – just hide the drawer
+          setIsMenuOpen(false);
+        }
     };
 
     const handleMouseEnter = (menuName: string) => {
@@ -119,81 +185,86 @@ export function HomePage() {
                     </div>
                 </div>
 
-                <header ref={headerRef} className={`smalls-screens ${getHeaderClasses()}`}>
-                    <div className="padding_main">
-                        <div className="container_main nav_container px-[1.25rem] py-[1rem]">
-                            <div className="flex items-center justify-between">
-                                <div className="flex-shrink-0 w-[40%] md:w-[13%]">
-                                    {headerPosition === "bottom" ? <LogoWhite /> : <LogoWhite />}
+                    <header ref={headerRef} className={`smalls-screens ${getHeaderClasses()}`}>
+                        <div ref={headerAnchorRef} className="absolute top-0 left-0 w-0 h-0 pointer-events-none" />
+
+                        <div className="padding_main">
+                            <div className="container_main nav_container px-[1.25rem] py-[1rem]">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex-shrink-0 w-[40%] md:w-[13%]">
+                                        {headerPosition === "bottom" ? <LogoWhite /> : <LogoWhite />}
+                                    </div>
+                                    <nav className="nav">
+                                        <ul className="flex items-center justify-between">
+                                            <li onMouseEnter={() => handleMouseEnter('company')} onMouseLeave={handleMouseLeave}>
+                                                <div className="nav_menu_link">Company</div>
+                                                <ul className={`sub-menu rounded-br-[2.5rem] ${hoveredMenu === 'company' ? 'block' : 'hidden'} ${
+                                                    headerPosition === 'bottom' ? 'sub-menu-bottom rounded-tr-[2.5rem] rounded-br-none' : 'sub-menu-top'
+                                                }`}>
+                                                    <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">About</Link>
+                                                    <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Taking Back Healthcare</Link>
+                                                    <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Partnerships</Link>
+                                                    <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Careers</Link>
+                                                </ul>
+                                            </li>
+                                            <li onMouseEnter={() => handleMouseEnter('product')} onMouseLeave={handleMouseLeave}>
+                                                <div className="nav_menu_link">Product Suite</div>
+                                                <ul className={`sub-menu rounded-br-[2.5rem] ${hoveredMenu === 'product' ? 'block' : 'hidden'} ${
+                                                    headerPosition === 'bottom' ? 'sub-menu-bottom rounded-tr-[2.5rem] rounded-br-none' : 'sub-menu-top'
+                                                }`}>
+                                                    <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Ambient AI</Link>
+                                                    <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Air EHR</Link>
+                                                    <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">RCM</Link>
+                                                    <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Agents</Link>
+                                                </ul>
+                                            </li>
+                                            <li><div className="nav_menu_link">Contact</div></li>
+                                            <li><div className="nav_menu_link">Case Studies</div></li>
+                                            <li><div className="nav_menu_link">Insight</div></li>
+                                        </ul>
+                                    </nav>
+
+                                    <div className="demos demo">
+                                        <Link href="more" className={`btn btn_demo border rounded-[10rem] ${headerPosition === 'top' ? 'bg-[var(--text-color-primary)] text-white' : 'bg-white text-black'}`}>Get a Demo</Link>
+                                    </div>
+
+                                    <button
+                                        className="toggle_btn relative w-8 h-8 flex flex-col justify-center items-center"
+                                        onClick={toggleMenu}
+                                        aria-label="Toggle menu"
+                                    >
+                                        <span className={`block w-6 h-0.5 ${isHeaderFixed && headerPosition === 'bottom' ? 'bg-white' : 'bg-black'} transition-all duration-300 ease-in-out ${!isMenuOpen ? 'rotate-90 translate-y-0.5' : ''}`}></span>
+                                        <span className={`block w-6 h-0.5 ${isHeaderFixed && headerPosition === 'bottom' ? 'bg-white' : 'bg-black'} transition-all duration-300 ease-in-out mt-1 ${!isMenuOpen ? 'rotate-180 ' : ''}`}></span>
+                                    </button>
                                 </div>
-
-                                <nav className="nav">
-                                    <ul className="flex items-center justify-between">
-                                        <li onMouseEnter={() => handleMouseEnter('company')} onMouseLeave={handleMouseLeave}>
-                                            <div className="nav_menu_link">Company</div>
-                                            <ul className={`sub-menu rounded-br-[2.5rem] ${hoveredMenu === 'company' ? 'block' : 'hidden'} ${
-                                                headerPosition === 'bottom' ? 'sub-menu-bottom rounded-tr-[2.5rem] rounded-br-none' : 'sub-menu-top'
-                                            }`}>
-                                                <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">About</Link>
-                                                <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Taking Back Healthcare</Link>
-                                                <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Partnerships</Link>
-                                                <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Careers</Link>
-                                            </ul>
-                                        </li>
-                                        <li onMouseEnter={() => handleMouseEnter('product')} onMouseLeave={handleMouseLeave}>
-                                            <div className="nav_menu_link">Product Suite</div>
-                                            <ul className={`sub-menu rounded-br-[2.5rem] ${hoveredMenu === 'product' ? 'block' : 'hidden'} ${
-                                                headerPosition === 'bottom' ? 'sub-menu-bottom rounded-tr-[2.5rem] rounded-br-none' : 'sub-menu-top'
-                                            }`}>
-                                                <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Ambient AI</Link>
-                                                <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Air EHR</Link>
-                                                <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">RCM</Link>
-                                                <Link className="sub-menu-link text-[.775rem] text-left text-black -mb-px border-b-1 px-[1.75rem] py-[.75rem] block" href="placeholders">Agents</Link>
-                                            </ul>
-                                        </li>
-                                        <li><div className="nav_menu_link">Contact</div></li>
-                                        <li><div className="nav_menu_link">Case Studies</div></li>
-                                        <li><div className="nav_menu_link">Insight</div></li>
-                                    </ul>
-                                </nav>
-
-                                <div className="demos demo">
-                                    <Link href="more" className={`btn btn_demo border rounded-[10rem] ${headerPosition === 'top' ? 'bg-[var(--text-color-primary)] text-white' : 'bg-white text-black'}`}>Get a Demo</Link>
-                                </div>
-
-                                <button
-                                    className="toggle_btn relative w-8 h-8 flex flex-col justify-center items-center"
-                                    onClick={toggleMenu}
-                                    aria-label="Toggle menu"
-                                >
-                                    <span className={`block w-6 h-0.5 ${isHeaderFixed && headerPosition === 'bottom' ? 'bg-white' : 'bg-black'} transition-all duration-300 ease-in-out ${!isMenuOpen ? 'rotate-90 translate-y-0.5' : ''}`}></span>
-                                    <span className={`block w-6 h-0.5 ${isHeaderFixed && headerPosition === 'bottom' ? 'bg-white' : 'bg-black'} transition-all duration-300 ease-in-out mt-1 ${!isMenuOpen ? 'rotate-180 ' : ''}`}></span>
-                                </button>
                             </div>
                         </div>
-                    </div>
 
-                    <div className={`absolute bg-white mobile_tablet overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100 block inline-block w-full' : 'max-h-0 opacity-0 hidden'}`}>
-                        <nav className="py-4 border-t border-gray-200">
-                            <ul className="space-y-4 -mt-px md:m-0">
-                                <li style={{ borderTop: "1px solid black" }}>
-                                    <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Company</Link>
-                                </li>
-                                <li>
-                                    <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Product Suite</Link>
-                                    <ul className="ml-4 mt-2 space-y-2">
+                        <div className={`absolute bg-black/40 ${isMenuOpen ? 'h-screen opacity-100 block inline-block w-full ' : 'max-h-0 opacity-0 hidden'}`}>
+                            <div className={`absolute bg-white mobile_tablet overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100 block inline-block w-full' : 'max-h-0 opacity-0 hidden'}`}>
+                                {/* <div className="h-screen w-full bg-red"></div> */}
+                                <nav className="py-4 border-t border-gray-200">
+                                    <ul className="space-y-4 -mt-px md:m-0">
+                                        <li style={{ borderTop: "1px solid black" }}>
+                                            <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Company</Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Product Suite</Link>
+                                            <ul className="ml-4 mt-2 space-y-2">
+                                            </ul>
+                                        </li>
+                                        <li><Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Contact</Link></li>
+                                        <li><Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Case Studies</Link></li>
+                                        <li><Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Insight</Link></li>
+                                        <div style={{ padding: ".3rem 1rem", paddingTop: "0.7rem" }}>
+                                            <Link href="more" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center justify-center">Get a Demo</Link>
+                                        </div>
                                     </ul>
-                                </li>
-                                <li><Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Contact</Link></li>
-                                <li><Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Case Studies</Link></li>
-                                <li><Link href="#" className="nav_menu_link text-left block text-gray-800 hover:text-blue-600 font-medium">Insight</Link></li>
-                                <div style={{ padding: ".3rem 1rem", paddingTop: "0.7rem" }}>
-                                    <Link href="more" className="btn btn_demo bg-black text-white border rounded-[10rem] text-[var(--text-color-primary)] w-full text-center justify-center">Get a Demo</Link>
-                                </div>
-                            </ul>
-                        </nav>
-                    </div>
-                </header>
+                                </nav>
+                            </div>
+                        </div>
+
+                    </header>
             </section>
         </>
     );
