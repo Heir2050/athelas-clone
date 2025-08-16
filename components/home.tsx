@@ -12,13 +12,13 @@ export function HomePage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [headerPosition, setHeaderPosition] = useState('bottom');
     const [isHeaderFixed, setIsHeaderFixed] = useState(false);
-    const [navbarHeight, setNavbarHeight] = useState(0); // Nouvelle state pour la hauteur de la navbar
+    const [navbarHeight, setNavbarHeight] = useState(0);
 
     const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
     const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
     const sectionRef = useRef<HTMLElement>(null);
-    const headerRef = useRef<HTMLElement>(null); // Changé en HTMLElement pour le typage
+    const headerRef = useRef<HTMLElement>(null);
 
     const headerAnchorRef = useRef<HTMLDivElement>(null);
 
@@ -105,28 +105,28 @@ export function HomePage() {
         };
     
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Appel initial pour définir l'état correct au chargement
+        handleScroll();
     
         return () => window.removeEventListener('scroll', handleScroll);
     }, [navbarHeight]); // Dépendance ajoutée pour navbarHeight
 
     // Désactiver le défilement quand le menu est ouvert
-    // 1.  keep the “saved Y” in a ref so it survives re-renders
+    // 1.  sauuvegarder la position exacte du defilement
     const savedScrollY = useRef<number>(0);
 
     useEffect(() => {
         if (isMenuOpen) {
-            // --- lock scrolling ---
-            savedScrollY.current = window.scrollY;      // ← remember real position
+            
+            savedScrollY.current = window.scrollY;
             document.body.style.position = 'fixed';
             document.body.style.top = `-${savedScrollY.current}px`;
             document.body.style.width = '100%';
         } else {
-            // --- unlock scrolling ---
+            
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
-            window.scrollTo(0, savedScrollY.current);    // ← jump straight back
+            window.scrollTo(0, savedScrollY.current);
         }
     }, [isMenuOpen]);
 
@@ -152,7 +152,7 @@ export function HomePage() {
             setIsHeaderFixed(true);
             setHeaderPosition('top');
             
-            // 2. Then scroll to top smoothly
+            // 2. Then scroll to top smoothly if not the look is not god to see
             headerAnchorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     
             // 3. After scroll completes, open the menu
@@ -307,7 +307,6 @@ export function HomePage() {
                             </nav>
                         </div>
                     </div>
-
                 </header>
             </section>
         </>
