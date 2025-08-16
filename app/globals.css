@@ -52,6 +52,7 @@ html.lenis body {
     position: relative;
     display: inline-block;
     overflow: hidden;
+    top: .2em;
 }
   
 .text-highlight_bg {
@@ -268,6 +269,10 @@ body {
 }
 /* header */
 /* Place le header en bas de sa section */
+.navbar-transition {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 .black-logo {
     transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;
 }
@@ -788,7 +793,8 @@ button.toggle_btn {
 }
 
 .card:nth-child(4) {
-    @apply top-[140px] md:top-0 md:my-0 z-11 md:z-1
+    /* @apply top-[140px] md:top-0 md:my-0 z-11 md:z-1 */
+    @apply md:top-0 md:my-0 z-11 md:z-1
 }
 
 .card .smaller_img {
@@ -819,7 +825,7 @@ button.toggle_btn {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #fff; /* ou la couleur de fond de ta page */
+    /* background-color: #fff; */
     z-index: 1;
     transition: height 0.8s ease-in-out;
     height: 100%;
@@ -838,14 +844,14 @@ button.toggle_btn {
 .card.four::before {
     content: '';
     position: absolute;
-    top: 0; /* Point de départ en haut */
+    top: 0; 
     left: 0;
     right: 0;
     height: 0%;
-    background: #fff;
+    /* background: #fff; */
     z-index: 1;
     animation: revealTopToBottom 0.8s forwards;
-    animation-play-state: paused; /* Désactivé au départ */
+    animation-play-state: paused; 
 }
 
 .card.four.animate::before {
@@ -1277,8 +1283,8 @@ button.toggle_btn {
         object-fit: contain;
         width: 100%;
         display: block;
-        height: 400px;
-        margin-top: 8rem;
+        /* height: 400px;
+        margin-top: 8rem; */
         top: 2rem;
     }
     

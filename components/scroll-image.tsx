@@ -160,7 +160,7 @@ const AIAutomations = () => {
 
 
                             <div className="automations_images home-product_tabs-content flex-1 sticky top-8">
-                                <div className="relative w-full md:h-[100vh] h-[40vh] rounded-xl overflow-hidden">
+                                <div className="relative w-full h-[40vh] rounded-xl overflow-hidden">
                                     {sections.map((section, index) => (
                                         <div
                                             key={index}

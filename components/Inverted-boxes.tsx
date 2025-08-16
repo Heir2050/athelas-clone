@@ -62,7 +62,7 @@ export function InvertedBoxes() {
                     </div>
                     <div
                         ref={cardRef}
-                        className={`card four md:col-span-3 ${visible ? 'animate' : ''}`}
+                        className={`card four md:col-span-3 `}
                     >
                         <div className="ai-agent">
                             <div>
