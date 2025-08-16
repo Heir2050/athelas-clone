@@ -198,7 +198,7 @@ export function HomePage() {
     return (
         <>
             <section ref={sectionRef} className="hero_section section_black relative" style={{ minHeight: '110vh' }}>
-                <div className="upper_hero padding_main relative">
+                <div className="upper_hero padding_main relative" style={{overflowX:"visible"}}>
                     <div className="container_main">
                         <div className="uncement">
                             <p className="smaller">Lattimore Physical Therapy &amp; Sports Rehabilitation Network Rolls Out Athelas Air to 35 Locations</p>
@@ -223,7 +223,7 @@ export function HomePage() {
                             <rect className="paint0_linear_2141_34" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_2141_34)" />
                             <rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#8DBEFF" />
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-2" style={{ zIndex: "100000" }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 196 72" className="pill_svg-element is-2" style={{ zIndex: "10" }}>
                             <rect className="paint0_linear_378_569" x="10.5" y="10.5" width="185" height="61" rx="30.5" stroke="black" fill="url(#paint0_linear_378_569)" />
                             <rect x="0.5" y="0.5" width="185" height="61" rx="30.5" stroke="black" fill="#E9FDA3" />
                         </svg>

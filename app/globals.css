@@ -289,6 +289,10 @@ body {
     position: relative;
 }
 
+.upper_hero.padding_main {
+    overflow-x: visible;
+}
+
 .custom-sticky-header {
     position: sticky;
     bottom: 0; /* collé en bas initialement */
