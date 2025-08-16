@@ -1050,6 +1050,13 @@ button.toggle_btn {
 
 .auto_bloc {
     padding: 2.75rem 1.75rem 2.75rem 3rem;
+    transition-property: background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease;
+}
+
+.auto_bloc:not(.is_active):hover{
+    background-color: #e8e9ec;
 }
 
 .home-product_tabs-menu {
