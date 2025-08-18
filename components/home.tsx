@@ -236,7 +236,7 @@ export function HomePage() {
                     <div className="padding_main">
                         <div className="container_main nav_container px-[1.25rem] py-[1rem]">
                             <div className="flex items-center justify-between">
-                                <div className="flex-shrink-0 w-[40%] md:w-[13%]">
+                                <div className="flex-shrink-0 w-[40%] sm:w-[20%] md:w-[13%]">
                                     {headerPosition === "bottom" ? <LogoWhite /> : <LogoWhite />}
                                 </div>
                                 <nav className="nav">
